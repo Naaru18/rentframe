@@ -228,6 +228,12 @@
 
 
       const modeToggle = document.getElementById('modeToggle');
+
+      // Read saved mode BEFORE wiring up the click handler
+      if (localStorage.getItem('rentframe-mode') === 'dark') {
+        document.body.classList.add('dark');
+      }
+
       modeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark');
         localStorage.setItem('rentframe-mode', document.body.classList.contains('dark') ? 'dark' : 'light');
