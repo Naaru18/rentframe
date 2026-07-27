@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Frame Blog page</title>
+  <link rel="icon" type="image/png" href="../Images/logo.png">
+
+  <link rel="preload" href="../css/navbar.css" as="style">
+
+  <link rel="stylesheet" href="../global.css">
+
+  <link rel="stylesheet" href="../blog.css">
+</head>
+
+<body>
+  <div id="site-navbar"></div>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow reveal">Furniture Rental Blog</span>
+      <h1 class="reveal reveal-delay-1">Stories On Living <span class="accent">Beautifully, Renting Smartly</span></h1>
+      <p class="reveal reveal-delay-2">Design tips, room makeovers and rental guides from our team — for homes across
+        Nellore & Andhra Pradesh.</p>
+      <form class="hero-search reveal reveal-delay-3">
+        <input type="text" placeholder="Search articles..." required>
+        <button type="submit" class="btn-primary">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      function initReveal() {
+        var items = document.querySelectorAll('.hero .reveal');
+        items.forEach(function (el) {
+          requestAnimationFrame(function () {
+            el.classList.add('is-visible');
+          });
+        });
+      }
+      document.addEventListener('DOMContentLoaded', initReveal);
+    })();
+  </script>
+
+
+  <section class="section bg-1">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Editor's Pick</span>
+      <h2>Featured <span class="accent">Article</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <a href="blog-detail.html" class="featured-wrap reveal">
+      <div class="featured-img">
+        <img src="../Images/featured.avif" alt="Small styled apartment living room">
+      </div>
+      <div class="featured-content">
+        <span class="cat-tag">Room Makeovers</span>
+        <h3>How To Furnish A Rental Apartment In 48 Hours</h3>
+        <p>From choosing a sofa that fits your lease term to styling a small living room on a budget — here's exactly
+          how we help renters move in fast without compromising on comfort or design.</p>
+        <div class="featured-meta">
+          <img src="../Images/featured2.avif" alt="Author avatar">
+          <div>
+            <div class="name">Sandhya Reddy</div>
+            <div class="date">July 12, 2026 · 6 min read</div>
+          </div>
+        </div>
+        <span class="btn-outline">Read Article</span>
+      </div>
+    </a>
+  </section>
+
+  <script>
+    (function () {
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+    })();
+  </script>
+
+
+  <section class="section bg-2">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Fresh Off The Press</span>
+      <h2>Latest <span class="accent">Articles</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="articles-grid">
+      <a href="blog-detail.html" class="article-card reveal" data-cat="living">
+        <div class="img-wrap">
+          <span class="cat-tag">Living Room</span>
+          <img src="../Images/blog1.jpg" alt="Living room styling">
+        </div>
+        <div class="content">
+          <h3>5 Sofa Styles That Fit Any Rental Layout</h3>
+          <p class="excerpt">A quick guide to picking a sofa silhouette that suits short leases and small floor plans.
+          </p>
+          <div class="meta"><span>Karthik Varma</span><span class="dot"></span><span>July 18, 2026</span><span
+              class="dot"></span><span>4 min</span></div>
+          <span class="read-more">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="blog-detail.html" class="article-card reveal reveal-delay-1" data-cat="bedroom">
+        <div class="img-wrap">
+          <span class="cat-tag">Bedroom</span>
+          <img src="../Images/blog2.jpg" alt="Bedroom styling">
+        </div>
+        <div class="content">
+          <h3>Choosing A Rental Bed Frame For Small Rooms</h3>
+          <p class="excerpt">Frame sizes, storage options and finishes that make the most of a compact bedroom.</p>
+          <div class="meta"><span>Priya Nair</span><span class="dot"></span><span>July 15, 2026</span><span
+              class="dot"></span><span>5 min</span></div>
+          <span class="read-more">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="blog-detail.html" class="article-card reveal reveal-delay-2" data-cat="office">
+        <div class="img-wrap">
+          <span class="cat-tag">Home Office</span>
+          <img src="../Images/blog3.jpg" alt="Home office setup">
+        </div>
+        <div class="content">
+          <h3>Building A Productive Home Office On Rent</h3>
+          <p class="excerpt">Desk, chair and lighting picks that turn a rented corner into a real workspace.</p>
+          <div class="meta"><span>Sandhya Reddy</span><span class="dot"></span><span>July 10, 2026</span><span
+              class="dot"></span><span>3 min</span></div>
+          <span class="read-more">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="blog-detail.html" class="article-card reveal" data-cat="guides">
+        <div class="img-wrap">
+          <span class="cat-tag">Rental Guides</span>
+          <img src="../Images/blog4.jpg" alt="Dining room guide">
+        </div>
+        <div class="content">
+          <h3>Rental Furniture Contracts: What To Check First</h3>
+          <p class="excerpt">The clauses worth reading twice before you sign your next furniture rental agreement.</p>
+          <div class="meta"><span>Karthik Varma</span><span class="dot"></span><span>July 6, 2026</span><span
+              class="dot"></span><span>6 min</span></div>
+          <span class="read-more">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="blog-detail.html" class="article-card reveal reveal-delay-1" data-cat="tips">
+        <div class="img-wrap">
+          <span class="cat-tag">Design Tips</span>
+          <img src="../Images/blog5.jpg" alt="Balcony design tips">
+        </div>
+        <div class="content">
+          <h3>Styling A Rented Balcony Without Breaking The Lease</h3>
+          <p class="excerpt">Lightweight, damage-free ways to turn a bare balcony into an outdoor lounge.</p>
+          <div class="meta"><span>Priya Nair</span><span class="dot"></span><span>July 3, 2026</span><span
+              class="dot"></span><span>4 min</span></div>
+          <span class="read-more">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="blog-detail.html" class="article-card reveal reveal-delay-2" data-cat="living">
+        <div class="img-wrap">
+          <span class="cat-tag">Living Room</span>
+          <img src="../Images/blog6.jpg" alt="Storage furniture">
+        </div>
+        <div class="content">
+          <h3>Smart Storage Solutions For Short-Term Rentals</h3>
+          <p class="excerpt">Modular units and multi-use furniture that keep clutter down without permanent fixtures.
+          </p>
+          <div class="meta"><span>Sandhya Reddy</span><span class="dot"></span><span>June 29, 2026</span><span
+              class="dot"></span><span>5 min</span></div>
+          <span class="read-more">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+
+      <a href="blog-detail.html" class="article-card hidden-extra reveal" data-cat="bedroom" style="display:none;">
+        <div class="img-wrap">
+          <span class="cat-tag">Bedroom</span>
+          <img src="../Images/blog7.jpg" alt="Wardrobe styling">
+        </div>
+        <div class="content">
+          <h3>Wardrobe Organization Ideas For Rented Rooms</h3>
+          <p class="excerpt">Simple systems to maximize closet space without drilling a single hole.</p>
+          <div class="meta"><span>Karthik Varma</span><span class="dot"></span><span>June 24, 2026</span><span
+              class="dot"></span><span>4 min</span></div>
+          <span class="read-more">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="blog-detail.html" class="article-card hidden-extra reveal reveal-delay-1" data-cat="guides"
+        style="display:none;">
+        <div class="img-wrap">
+          <span class="cat-tag">Rental Guides</span>
+          <img src="../Images/blog8.jpg" alt="Furniture inspection guide">
+        </div>
+        <div class="content">
+          <h3>How To Inspect Rental Furniture Before Delivery Day</h3>
+          <p class="excerpt">A quick checklist to run through before signing off on your delivery.</p>
+          <div class="meta"><span>Priya Nair</span><span class="dot"></span><span>June 20, 2026</span><span
+              class="dot"></span><span>3 min</span></div>
+          <span class="read-more">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a href="blog-detail.html" class="article-card hidden-extra reveal reveal-delay-2" data-cat="office"
+        style="display:none;">
+        <div class="img-wrap">
+          <span class="cat-tag">Home Office</span>
+          <img src="../Images/blog9.jpg" alt="Ergonomic chair">
+        </div>
+        <div class="content">
+          <h3>Ergonomic Chairs Worth Renting In 2026</h3>
+          <p class="excerpt">Our top picks for chairs that support long work hours without a long-term commitment.</p>
+          <div class="meta"><span>Sandhya Reddy</span><span class="dot"></span><span>June 16, 2026</span><span
+              class="dot"></span><span>4 min</span></div>
+          <span class="read-more">Read More <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="load-more-wrap reveal">
+      <button id="loadMoreBtn" class="btn-primary">Load More Articles</button>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+
+      var loadMoreBtn = document.getElementById('loadMoreBtn');
+      var hiddenCards = document.querySelectorAll('.article-card.hidden-extra');
+
+      loadMoreBtn.addEventListener('click', function () {
+        hiddenCards.forEach(function (card) {
+          card.style.display = 'block';
+          card.classList.add('is-visible');
+          if ('IntersectionObserver' in window) {
+
+            var obs = new IntersectionObserver(function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  obs.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.1 });
+            obs.observe(card);
+          }
+        });
+
+        loadMoreBtn.textContent = 'All Articles Loaded';
+        loadMoreBtn.classList.add('is-done');
+      });
+    })();
+  </script>
+
+
+  <section class="section bg-1">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Browse Topics</span>
+      <h2>Blog <span class="accent">Categories</span></h2>
+      <div class="divider"></div>
+      <p>Filter articles by what you're furnishing next.</p>
+    </div>
+
+    <div class="cat-grid">
+      <a href="#" class="cat-chip active reveal" data-cat="all">
+        <div class="icon">✦</div>
+        <h4>All Posts</h4>
+        <span>24 articles</span>
+      </a>
+      <a href="#" class="cat-chip reveal reveal-delay-1" data-cat="living">
+        <div class="icon">🛋</div>
+        <h4>Living Room</h4>
+        <span>7 articles</span>
+      </a>
+      <a href="#" class="cat-chip reveal reveal-delay-2" data-cat="bedroom">
+        <div class="icon">🛏</div>
+        <h4>Bedroom</h4>
+        <span>5 articles</span>
+      </a>
+      <a href="#" class="cat-chip reveal reveal-delay-3" data-cat="office">
+        <div class="icon">💼</div>
+        <h4>Home Office</h4>
+        <span>4 articles</span>
+      </a>
+      <a href="#" class="cat-chip reveal reveal-delay-4" data-cat="guides">
+        <div class="icon"><i class="fa-solid fa-book-open"></i></div>
+        <h4>Rental Guides</h4>
+        <span>5 articles</span>
+      </a>
+      <a href="#" class="cat-chip reveal" data-cat="tips">
+        <div class="icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <h4>Design Tips</h4>
+        <span>3 articles</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section bg-2">
+    <div class="newsletter-banner reveal">
+      <div class="newsletter-content">
+        <div class="icon-badge">✉</div>
+        <h2>Never Miss An Article</h2>
+        <p>Get rental furniture guides, styling tips and new arrivals straight to your inbox — no spam, ever.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+          <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+        <div class="newsletter-success" id="newsletterSuccess">✓ Thanks! Please check your inbox to confirm.</div>
+        <div class="newsletter-note">Join 4,200+ readers. Unsubscribe anytime.</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+
+      var chips = document.querySelectorAll('.cat-chip');
+      var articleCards = document.querySelectorAll('[data-cat].article-card');
+
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          chips.forEach(function (c) { c.classList.remove('active'); });
+          chip.classList.add('active');
+
+          var selectedCat = chip.getAttribute('data-cat');
+
+          if (articleCards.length) {
+            articleCards.forEach(function (card) {
+              var cardCat = card.getAttribute('data-cat');
+              var show = selectedCat === 'all' || cardCat === selectedCat;
+              card.style.display = show ? '' : 'none';
+            });
+          }
+        });
+      });
+
+
+      var form = document.getElementById('newsletterForm');
+      var success = document.getElementById('newsletterSuccess');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var emailInput = document.getElementById('newsletterEmail');
+        if (!emailInput.value || !emailInput.checkValidity()) return;
+
+        form.classList.add('hide');
+        success.classList.add('show');
+        emailInput.value = '';
+      });
+    })();
+  </script>
+
+
+  <script src="../js/navbar.js"></script>
+  <div id="site-footer"></div>
+  <script src="../js/footer.js"></script>
+</body>
+
+</html>

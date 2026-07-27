@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Frame About</title>
+  <link rel="icon" type="image/png" href="../Images/logo.png">
+
+  <link rel="preload" href="../css/navbar.css" as="style">
+  <link rel="stylesheet" href="../global.css">
+
+  <link rel="stylesheet" href="../about.css">
+</head>
+
+<body>
+  <div id="site-navbar"></div>
+  <section class="about-hero" id="aboutHero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="eyebrow">About RentFrame</span>
+      <h1>Building A Better Way To <span class="accent">Rent & Own</span></h1>
+      <p>We started RentFrame to make renting simple, transparent, and stress-free — for tenants and owners alike.</p>
+      <div class="about-hero-actions">
+        <a href="contact.html" class="btn-primary">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const heroBg = document.getElementById('heroBg');
+      const heroSection = document.getElementById('aboutHero');
+
+
+      const primaryImg = '../Images/home2hero.jpg';
+      const fallbackImg = '../Images/home2hero.jpg';
+
+      const img = new Image();
+      img.onload = function () {
+        heroBg.style.backgroundImage = `url('${primaryImg}')`;
+        activate();
+      };
+      img.onerror = function () {
+        heroBg.style.backgroundImage = `url('${fallbackImg}')`;
+        activate();
+      };
+      img.src = primaryImg;
+
+      function activate() {
+
+        requestAnimationFrame(() => {
+          heroBg.classList.add('loaded');
+          heroSection.classList.add('hero-ready');
+        });
+      }
+    })();
+  </script>
+  <section class="section our-story" id="ourStory">
+    <div class="story-grid">
+      <div class="story-image reveal" style="background-image:url('../Images/about.avif')"></div>
+      <div class="story-content reveal">
+        <span class="eyebrow">Our Story</span>
+        <h2>From An Idea To A <span class="accent">Trusted Platform</span></h2>
+        <p>RentFrame began with a simple frustration: renting shouldn't be complicated. What started as a small project
+          between friends grew into a platform trusted by thousands of renters and property owners.</p>
+        <p>Today, we combine technology with genuine care to make every step of the rental journey easier — from search
+          to sign, and everything after.</p>
+        <div class="story-stats">
+          <div>
+            <h3 data-count="8" data-suffix="+">0</h3><span>Years Active</span>
+          </div>
+          <div>
+            <h3 data-count="15" data-suffix="K+">0</h3><span>Happy Clients</span>
+          </div>
+          <div>
+            <h3 data-count="40" data-suffix="+">0</h3><span>Cities Covered</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      const storySection = document.getElementById('ourStory');
+      if (!storySection) return;
+
+
+      const revealEls = storySection.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.2 });
+      revealEls.forEach(el => revealObserver.observe(el));
+
+
+      const counters = storySection.querySelectorAll('[data-count]');
+      let counted = false;
+
+      function animateCounters() {
+        counters.forEach(counter => {
+          const target = parseInt(counter.dataset.count, 10);
+          const suffix = counter.dataset.suffix || '';
+          const duration = 1400;
+          const startTime = performance.now();
+
+          function tick(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const value = Math.floor(progress * target);
+            counter.textContent = value + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+
+      const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !counted) {
+            counted = true;
+            animateCounters();
+            countObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+
+      const statsEl = storySection.querySelector('.story-stats');
+      if (statsEl) countObserver.observe(statsEl);
+    })();
+  </script>
+
+  <section class="section mission-vision">
+    <div class="section-heading">
+      <span class="eyebrow">What Drives Us</span>
+      <h2>Our Mission & <span class="accent">Vision</span></h2>
+      <div class="divider"></div>
+      <p>Two ideas that shape every decision we make at RentFrame.</p>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-icon"><span>M</span></div>
+        <h3>Our Mission</h3>
+        <p>To simplify the renting experience through honest pricing, verified listings, and tools that give both
+          renters and owners full confidence and control.</p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-icon"><span>V</span></div>
+        <h3>Our Vision</h3>
+        <p>To become the most trusted rental platform in the region, where finding a home or listing a property feels
+          effortless, transparent, and fair.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-choose">
+    <div class="section-heading">
+      <span class="eyebrow">Why RentFrame</span>
+      <h2>Why <span class="accent">Choose Us</span></h2>
+      <div class="divider"></div>
+      <p>The reasons thousands of clients rent and list with us every year.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon"><span>✓</span></div>
+        <h3>Verified Listings</h3>
+        <p>Every property is checked and verified before it goes live.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><span>₹</span></div>
+        <h3>Transparent Pricing</h3>
+        <p>No hidden fees — what you see is exactly what you pay.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><span><i class="fa-solid fa-bolt"></i></span></div>
+        <h3>Fast Process</h3>
+        <p>From search to signing, most rentals close within days.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><span>☎</span></div>
+        <h3>24/7 Support</h3>
+        <p>Our support team is always a message away, day or night.</p>
+      </div>
+    </div>
+  </section>
+  <script>
+
+    (function () {
+      const cards = document.querySelectorAll('.why-choose .why-card');
+      if (!cards.length) return;
+
+
+      cards.forEach((card, i) => {
+        card.classList.add('reveal');
+        card.style.transitionDelay = `${i * 100}ms`;
+      });
+
+
+      if (!('IntersectionObserver' in window)) {
+        cards.forEach((card) => card.classList.add('in-view'));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              obs.unobserve(entry.target); // animate once
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+          rootMargin: '0px 0px -40px 0px',
+        }
+      );
+
+      cards.forEach((card) => observer.observe(card));
+    })();
+  </script>
+
+  <section class="section our-team">
+    <div class="section-heading">
+      <span class="eyebrow">The People Behind It</span>
+      <h2>Meet Our <span class="accent">Team</span></h2>
+      <div class="divider"></div>
+      <p>A dedicated team working to make renting effortless for everyone.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <div class="team-info">
+          <h3>Aditya Rao</h3><span>Founder & CEO</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <div class="team-info">
+          <h3>Sneha Kapoor</h3><span>Head of Operations</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <div class="team-info">
+          <h3>Rahul Mehta</h3><span>Lead Developer</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"></div>
+        <div class="team-info">
+          <h3>Priya Nair</h3><span>Customer Success</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const teamPhotos = [
+        '../Images/team1.jpg', // male
+        '../Images/team2.jpg', // female
+        '../Images/team3.jpg', // male
+        '../Images/team4.jpg'  // female
+      ];
+
+      const photoEls = document.querySelectorAll('.team-photo');
+      photoEls.forEach((el, i) => {
+        const url = teamPhotos[i % teamPhotos.length];
+        const img = new Image();
+        img.onload = () => {
+          el.style.backgroundImage = `url('${url}')`;
+        };
+        img.src = url;
+      });
+    });
+  </script>
+
+  <section class="section sustainability">
+    <div class="sustain-grid">
+      <div class="sustain-image"></div>
+      <div class="sustain-content">
+
+        <h2
+          style="font-family:'Poppins',sans-serif;font-size:32px;text-transform:uppercase;color:var(--text-one);margin-bottom:14px;">
+          Sustainability <span style="color:var(--primary);">Commitment</span></h2>
+        <p style="font-size:15px;line-height:1.75;color:var(--text-second);">We believe renting responsibly matters.
+          RentFrame actively promotes practices that reduce waste and support long-term community wellbeing.</p>
+        <ul class="sustain-list">
+          <li><span class="tick">1</span> Paperless agreements and digital documentation for every listing.</li>
+          <li><span class="tick">2</span> Partnering with eco-conscious property owners across cities.</li>
+          <li><span class="tick">3</span> Encouraging energy-efficient upgrades in listed properties.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const sustainImg = document.querySelector('.sustain-image');
+      const imgUrl = '../Images/sustainable.png';
+
+      if (sustainImg) {
+        const img = new Image();
+        img.onload = () => {
+          sustainImg.style.backgroundImage = `url('${imgUrl}')`;
+        };
+        img.src = imgUrl;
+      }
+
+
+      const sustainGrid = document.querySelector('.sustain-grid');
+      if (sustainGrid && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.25 }
+        );
+        observer.observe(sustainGrid);
+      } else if (sustainGrid) {
+
+        sustainGrid.classList.add('in-view');
+      }
+    });
+  </script>
+
+  <section class="section faq">
+    <div class="section-heading">
+      <span class="eyebrow">Got Questions?</span>
+      <h2>Frequently Asked <span class="accent">Questions</span></h2>
+      <div class="divider"></div>
+      <p>Answers to the questions we hear most often.</p>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <div class="faq-question">What is the minimum rental period? <span class="plus">+</span></div>
+        <div class="faq-answer">
+          <p>Our minimum rental period is 1 month. You can choose monthly, quarterly, half-yearly, or yearly plans based
+            on your needs.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Are there any hidden fees? <span class="plus">+</span></div>
+        <div class="faq-answer">
+          <p>No. All pricing is shown upfront on every listing, with no surprise charges at any stage of the process.
+          </p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can I cancel a booking after confirming? <span class="plus">+</span></div>
+        <div class="faq-answer">
+          <p>Yes, cancellations are possible depending on the property's policy, which is clearly listed before you
+            confirm.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How does RentFrame verify listings? <span class="plus">+</span></div>
+        <div class="faq-answer">
+          <p>Our team manually reviews documents and property details, and conducts spot checks to keep listings
+            accurate and trustworthy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        document.querySelectorAll('.faq-item').forEach(i => {
+          if (i !== item) i.classList.remove('open');
+        });
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+
+  <script src="../js/navbar.js"></script>
+  <div id="site-footer"></div>
+  <script src="../js/footer.js"></script>
+</body>
+
+</html>

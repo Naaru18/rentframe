@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Frame Contact page</title>
+  <link rel="icon" type="image/png" href="../Images/logo.png">
+
+  <link rel="preload" href="../css/navbar.css" as="style">
+
+  <link rel="stylesheet" href="../global.css">
+
+  <link rel="stylesheet" href="../contact.css">
+</head>
+
+<body>
+  <div id="site-navbar"></div>
+  <section class="contact-hero" id="contactHero">
+    <canvas id="heroParticles"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content reveal">
+      <span class="hero-eyebrow">We'd Love To Hear From You</span>
+      <h1 class="hero-title">Let's Furnish Your <span class="accent">Story</span></h1>
+      <p class="hero-sub">Questions about a rental, a delivery date, or a bespoke package for your space? Our team in
+        Nellore and Bangalore is one message away.</p>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span class="current">Contact</span>
+      </nav>
+    </div>
+    <div class="hero-scroll-cue">
+      <span></span>
+    </div>
+  </section>
+  <script>
+    (function () {
+      const canvas = document.getElementById('heroParticles');
+      const ctx = canvas.getContext('2d');
+      const section = document.getElementById('contactHero');
+      let particles = [];
+      let width, height, dpr;
+      let running = true;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function getParticleCount() {
+        if (width < 480) return 18;
+        if (width < 768) return 30;
+        if (width < 1024) return 45;
+        return 65;
+      }
+
+      function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = section.clientWidth;
+        height = section.clientHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        initParticles();
+      }
+
+      function initParticles() {
+        const count = getParticleCount();
+        particles = Array.from({ length: count }, () => spawnParticle());
+      }
+
+      function spawnParticle(fromBottom) {
+        return {
+          x: Math.random() * width,
+          y: fromBottom ? height + 10 : Math.random() * height,
+          r: Math.random() * 1.8 + 0.6,
+          speed: Math.random() * 0.35 + 0.12,
+          drift: (Math.random() - 0.5) * 0.3,
+          opacity: Math.random() * 0.5 + 0.15
+        };
+      }
+
+      function draw() {
+        if (!running) return;
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = 'rgba(217, 180, 143, 1)';
+
+        for (const p of particles) {
+          ctx.globalAlpha = p.opacity;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+
+          p.y -= p.speed;
+          p.x += p.drift;
+
+          if (p.y < -10) Object.assign(p, spawnParticle(true));
+        }
+        ctx.globalAlpha = 1;
+
+        requestAnimationFrame(draw);
+      }
+
+      function start() {
+        if (prefersReducedMotion || width < 360) {
+          canvas.style.display = 'none';
+          return;
+        }
+        resize();
+        requestAnimationFrame(draw);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        running = entries[0].isIntersecting;
+        if (running) requestAnimationFrame(draw);
+      });
+      observer.observe(section);
+
+      window.addEventListener('resize', () => {
+        clearTimeout(window.__heroResizeT);
+        window.__heroResizeT = setTimeout(resize, 150);
+      });
+
+      start();
+    })();
+  </script>
+  <section class="section info-section" style="background:var(--sbg1)">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Reach Us</span>
+      <h2>Three Easy Ways To <span class="accent">Connect</span></h2>
+      <div class="divider"></div>
+      <p>Pick whichever feels easiest — call for something urgent, write for the details, or drop by one of our
+        showrooms to touch the fabrics yourself.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <div class="info-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </div>
+        <h3>Visit Us</h3>
+        <p>4th Cross, Dargamitta<br>Nellore, Andhra Pradesh</p>
+        <p>2nd Floor, Indiranagar<br>Bangalore, Karnataka</p>
+      </div>
+
+      <div class="info-card reveal">
+        <div class="info-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </div>
+        <h3>Call Us</h3>
+        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+        <p><a href="tel:+918023456789">+91 80 2345 6789</a></p>
+      </div>
+
+      <div class="info-card reveal">
+        <div class="info-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 4h16v16H4z" opacity="0" />
+            <path d="M22 6l-10 7L2 6" />
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+          </svg>
+        </div>
+        <h3>Email Us</h3>
+        <p><a href="mailto:hello@rentframe.com">hello@rentframe.com</a></p>
+        <p><a href="mailto:support@rentframe.com">support@rentframe.com</a></p>
+      </div>
+
+      <div class="info-card reveal">
+        <div class="info-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+        </div>
+        <h3>Working Hours</h3>
+        <p>Mon – Sat: 10:00 AM – 8:00 PM</p>
+        <p>Sunday: 11:00 AM – 5:00 PM</p>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      const revealEls = document.querySelectorAll('.info-section .reveal');
+
+      if (!('IntersectionObserver' in window)) {
+
+        revealEls.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target); // reveal once, don't re-trigger
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealEls.forEach(el => observer.observe(el));
+    })();
+  </script>
+
+  <section class="section form-section" style="background:var(--sbg2)">
+    <div class="form-wrap">
+      <div class="form-image reveal">
+        <img src="../Images/contactde.avif" alt="Warm, furnished living room with a rented sofa set" loading="lazy">
+        <div class="floating-badge">
+          <strong>24 hrs</strong>
+          <span>Average reply time</span>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <span class="eyebrow">Send A Message</span>
+        <h2>Tell Us What Your <span class="accent">Space</span> Needs</h2>
+        <div class="divider left"></div>
+        <p class="form-intro">Fill in the details below and a rental specialist will get back to you with options and
+          pricing.</p>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="field" data-field="fname">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Your name" required>
+              <span class="error-msg">Please enter your name</span>
+            </div>
+            <div class="field" data-field="femail">
+              <label for="femail">Email Address</label>
+              <input type="email" id="femail" name="femail" placeholder="you@example.com" required>
+              <span class="error-msg">Please enter a valid email</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field" data-field="fphone">
+              <label for="fphone">Phone Number</label>
+              <input type="tel" id="fphone" name="fphone" placeholder="+91 00000 00000" required>
+              <span class="error-msg">Please enter a valid phone number</span>
+            </div>
+            <div class="field" data-field="fsubject">
+              <label for="fsubject">I'm Interested In</label>
+              <select id="fsubject" name="fsubject" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="living-room">Living Room Package</option>
+                <option value="bedroom">Bedroom Package</option>
+                <option value="office">Home Office Setup</option>
+                <option value="event">Short-Term / Event Rental</option>
+                <option value="other">Something Else</option>
+              </select>
+              <span class="error-msg">Please choose an option</span>
+            </div>
+          </div>
+
+          <div class="field" data-field="fmessage">
+            <label for="fmessage">Message</label>
+            <textarea id="fmessage" name="fmessage" rows="4"
+              placeholder="Tell us about your space, timeline and budget..." required></textarea>
+            <span class="error-msg">Please enter a short message</span>
+          </div>
+
+          <button type="submit" class="btn-primary submit-btn">
+            <span class="btn-text">Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13" />
+              <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+            </svg>
+          </button>
+
+          <p class="form-success" id="formSuccess">Thank you — your message has been sent. We'll be in touch within 24
+            hours.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section showroom-section" style="background:var(--sbg1)">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Come Say Hello</span>
+      <h2>Visit One Of Our <span class="accent">Showrooms</span></h2>
+      <div class="divider"></div>
+      <p>See and feel the pieces before they arrive at your door. Both showrooms are open daily and walk-ins are always
+        welcome.</p>
+    </div>
+
+    <div class="showroom-grid">
+      <div class="showroom-map reveal">
+        <iframe id="showroomMap" title="RentFrame showroom location map"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=79.96%2C14.42%2C79.99%2C14.46&layer=mapnik&marker=14.4426%2C79.9865"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <div class="showroom-cards">
+        <div class="showroom-card reveal is-active" data-bbox="79.96,14.42,79.99,14.46" data-marker="14.4426,79.9865">
+          <img src="../Images/contactde3.avif" alt="RentFrame Nellore showroom interior" loading="lazy">
+          <div class="showroom-card-body">
+            <h3>Nellore Showroom</h3>
+            <p>4th Cross, Dargamitta, Nellore, AP 524003</p>
+            <a href="https://www.openstreetmap.org/?mlat=14.4426&mlon=79.9865#map=15/14.4426/79.9865" target="_blank"
+              rel="noopener" class="showroom-link">Get Directions →</a>
+          </div>
+        </div>
+        <div class="showroom-card reveal" data-bbox="77.63,12.96,77.66,12.99" data-marker="12.9716,77.6412">
+          <img src="../Images/contactde4.avif" alt="RentFrame Bangalore showroom interior" loading="lazy">
+          <div class="showroom-card-body">
+            <h3>Bangalore Showroom</h3>
+            <p>2nd Floor, 100ft Road, Indiranagar, Bangalore 560038</p>
+            <a href="https://www.openstreetmap.org/?mlat=12.9716&mlon=77.6412#map=15/12.9716/77.6412" target="_blank"
+              rel="noopener" class="showroom-link">Get Directions →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      const cards = document.querySelectorAll('.showroom-card');
+      const mapWrap = document.querySelector('.showroom-map');
+      const mapFrame = document.getElementById('showroomMap');
+
+      if (!cards.length || !mapFrame) return;
+
+      function buildMapSrc(bbox, marker) {
+        return `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${marker}`;
+      }
+
+      function activateCard(card) {
+        cards.forEach((c) => c.classList.remove('is-active'));
+        card.classList.add('is-active');
+
+        const bbox = card.dataset.bbox;
+        const marker = card.dataset.marker;
+        if (!bbox || !marker) return;
+
+        mapWrap.classList.add('is-loading');
+        mapFrame.src = buildMapSrc(bbox, marker);
+      }
+
+      mapFrame.addEventListener('load', () => {
+        mapWrap.classList.remove('is-loading');
+      });
+
+      cards.forEach((card) => {
+        card.addEventListener('click', (e) => {
+
+          if (e.target.closest('.showroom-link')) return;
+          activateCard(card);
+        });
+
+
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activateCard(card);
+          }
+        });
+      });
+
+
+      const revealEls = document.querySelectorAll('.showroom-section .reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach((el) => observer.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      }
+    })();
+  </script>
+
+  <script src="../js/navbar.js"></script>
+  <div id="site-footer"></div>
+  <script src="../js/footer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Frame Dashboard page</title>
+  <link rel="icon" type="image/png" href="../Images/logo.png">
+
+
+
+  <link rel="stylesheet" href="../dashboard.css">
+</head>
+
+<body>
+
+
+  <div class="dashboard-shell">
+
+
+    <aside class="dashboard-sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <a href="index.html" class="navbar-logo">
+          <span class="navbar-logo-icon-wrap">
+            <img src="../Images/logo.png" alt="RentFrame logo" class="navbar-logo-icon"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="navbar-logo-icon-fallback" style="display:none;">R</span>
+          </span>
+          <span class="navbar-logo-text">Rent<span>Frame</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Dashboard navigation">
+        <span class="sidebar-section-label">Overview</span>
+        <button class="sidebar-link active" data-target="overview" data-title="Dashboard"
+          data-sub="Welcome back — here's what's happening with your rentals.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="9" rx="1.5" />
+            <rect x="14" y="3" width="7" height="5" rx="1.5" />
+            <rect x="14" y="12" width="7" height="9" rx="1.5" />
+            <rect x="3" y="16" width="7" height="5" rx="1.5" />
+          </svg>
+          Dashboard
+        </button>
+
+        <span class="sidebar-section-label">My Rentals</span>
+        <button class="sidebar-link" data-target="rentals" data-title="My Rentals"
+          data-sub="All the furniture currently rented to your address.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9.5L12 3l9 6.5" />
+            <path d="M5 10v10h14V10" />
+            <path d="M9 20v-6h6v6" />
+          </svg>
+          My Rentals
+        </button>
+        <button class="sidebar-link" data-target="wishlist" data-title="Wishlist"
+          data-sub="Items you've saved to rent later.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z" />
+          </svg>
+          Wishlist
+          <span class="badge-count" id="wishlistBadge">4</span>
+        </button>
+        <button class="sidebar-link" data-target="swaps" data-title="Swap &amp; Returns"
+          data-sub="Request an item swap or an early return.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 1l4 4-4 4M21 5H9a4 4 0 00-4 4v1M7 23l-4-4 4-4M3 19h12a4 4 0 004-4v-1" />
+          </svg>
+          Swap &amp; Returns
+        </button>
+
+        <span class="sidebar-section-label">Billing</span>
+        <button class="sidebar-link" data-target="payments" data-title="Payments"
+          data-sub="Track due dates, pay rent and review past invoices.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="5" width="20" height="14" rx="2" />
+            <line x1="2" y1="10" x2="22" y2="10" />
+          </svg>
+          Payments
+          <span class="badge-count" id="paymentsBadge">1</span>
+        </button>
+        <button class="sidebar-link" data-target="addresses" data-title="Addresses"
+          data-sub="Manage your saved delivery locations.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Addresses
+        </button>
+        <button class="sidebar-link" data-target="referral" data-title="Referral Program"
+          data-sub="Invite friends and earn rental credit.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="7" r="4" />
+            <path d="M2 21v-2a4 4 0 014-4h6a4 4 0 014 4v2" />
+            <path d="M19 8v6M22 11h-6" />
+          </svg>
+          Referral Program
+        </button>
+
+        <span class="sidebar-section-label">Support</span>
+        <button class="sidebar-link" data-target="notifications" data-title="Notifications"
+          data-sub="Stay on top of reminders and order updates.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 01-3.46 0" />
+          </svg>
+          Notifications
+          <span class="badge-count" id="notifSidebarBadge">3</span>
+        </button>
+        <button class="sidebar-link" data-target="help" data-title="Help &amp; Support"
+          data-sub="Browse FAQs or send us a message.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.1 9a3 3 0 115.8 1c0 2-3 2-3 4" />
+            <line x1="12" y1="17" x2="12" y2="17" />
+          </svg>
+          Help &amp; Support
+        </button>
+
+        <span class="sidebar-section-label">Account</span>
+        <button class="sidebar-link" data-target="profile" data-title="My Profile"
+          data-sub="Manage your personal details.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" />
+          </svg>
+          My Profile
+        </button>
+        <button class="sidebar-link" data-target="settings" data-title="Settings"
+          data-sub="Notification preferences, language and security.">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9c.23.5.66.86 1.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+          </svg>
+          Settings
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="sidebar-logout" id="sidebarLogoutBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+            <path d="M16 17l5-5-5-5" />
+            <path d="M21 12H9" />
+          </svg>
+          Log Out
+        </button>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <div class="dashboard-main">
+
+      <div class="mobile-topbar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          <a href="index.html" class="navbar-logo">
+            <span class="navbar-logo-icon-wrap">
+              <img src="../Images/logo.png" alt="RentFrame logo" class="navbar-logo-icon"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <span class="navbar-logo-icon-fallback" style="display:none;">R</span>
+            </span>
+            <span class="navbar-logo-text">Rent<span>Frame</span></span>
+          </a>
+        </div>
+      </div>
+
+      <header class="dashboard-topbar">
+        <div class="topbar-heading">
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSub">Welcome back — here's what's happening with your rentals.</p>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="icon-btn" id="modeToggle" aria-label="Toggle dark mode" title="Toggle light / dark mode">
+            <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+            <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+          </button>
+          <button class="icon-btn" id="rtlToggle" aria-label="Toggle RTL layout" title="Toggle RTL / LTR">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 3l4 4-4 4M21 7H9M7 21l-4-4 4-4M3 17h12" />
+            </svg>
+          </button>
+
+          <div class="dropdown-wrap">
+            <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 01-3.46 0" />
+              </svg>
+              <span class="dot" id="notifDot"></span>
+            </button>
+            <div class="dropdown-panel" id="notifPanel">
+              <div class="dropdown-header">
+                <h4>Notifications</h4><button id="markAllReadBtn">Mark all read</button>
+              </div>
+              <div class="dropdown-list" id="notifDropdownList"></div>
+            </div>
+          </div>
+
+          <div class="dropdown-wrap">
+            <button class="profile-trigger" id="profileBtn">
+              <img class="profile-avatar" src="../Images/dash1.avif" alt="Ananya Rao">
+              <span class="profile-meta"><strong>Ananya Rao</strong><span>Customer</span></span>
+            </button>
+            <div class="dropdown-panel" id="profilePanel">
+              <div class="dropdown-header">
+                <h4>Ananya Rao</h4>
+              </div>
+              <div class="profile-dropdown-list">
+                <a href="#" data-target="profile"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" />
+                  </svg>View Profile</a>
+                <a href="#" data-target="settings"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>Settings</a>
+                <a href="#" data-target="payments"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <line x1="2" y1="10" x2="22" y2="10" />
+                  </svg>Billing &amp; Payments</a>
+                <button class="logout-item" id="profileLogoutBtn"><svg width="15" height="15" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                    <path d="M16 17l5-5-5-5" />
+                    <path d="M21 12H9" />
+                  </svg>Log Out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+
+
+        <section class="dashboard-section active" id="overview">
+          <div class="welcome-banner">
+            <div>
+              <h2>Welcome back, Ananya 👋</h2>
+              <p>You have 5 active rentals, 1 payment due this week, and 4 saved wishlist items ready when you are.</p>
+            </div>
+            <button class="btn-primary" data-target="payments">Pay Now</button>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M3 9.5L12 3l9 6.5" />
+                  <path d="M5 10v10h14V10" />
+                </svg></div>
+              <div class="metric-value">5</div>
+              <div class="metric-label">Active Rentals</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <rect x="2" y="5" width="20" height="14" rx="2" />
+                  <line x1="2" y1="10" x2="22" y2="10" />
+                </svg></div>
+              <div class="metric-value">₹1,299</div>
+              <div class="metric-label">Next Payment — Aug 2, 2026</div>
+              <div class="metric-sub" style="color:var(--danger)">Due in 9 days</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg></div>
+              <div class="metric-value">₹8,795</div>
+              <div class="metric-label">Total Monthly Rent</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M2 21v-2a4 4 0 014-4h6a4 4 0 014 4v2" />
+                </svg></div>
+              <div class="metric-value">₹500</div>
+              <div class="metric-label">Referral Wallet Balance</div>
+              <div class="metric-sub">4 friends referred</div>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>Rental Snapshot</h3><button class="btn-outline btn-sm" data-target="rentals">View All</button>
+            </div>
+            <div class="table-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Category</th>
+                    <th>Monthly Rent</th>
+                    <th>Next Due</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Nordic 3-Seater Sofa</td>
+                    <td>Living Room</td>
+                    <td>₹2,499</td>
+                    <td>Aug 12, 2026</td>
+                    <td><span class="status-badge paid">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>Study Desk &amp; Chair Set</td>
+                    <td>Home Office</td>
+                    <td>₹1,299</td>
+                    <td>Aug 2, 2026</td>
+                    <td><span class="status-badge due">Due Soon</span></td>
+                  </tr>
+                  <tr>
+                    <td>Queen Bed Frame</td>
+                    <td>Bedroom</td>
+                    <td>₹1,899</td>
+                    <td>Aug 20, 2026</td>
+                    <td><span class="status-badge paid">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>Dining Table Set (4-seater)</td>
+                    <td>Dining</td>
+                    <td>₹2,199</td>
+                    <td>Aug 18, 2026</td>
+                    <td><span class="status-badge paid">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>Bookshelf Unit</td>
+                    <td>Study</td>
+                    <td>₹899</td>
+                    <td>Sep 5, 2026</td>
+                    <td><span class="status-badge paid">Active</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="dashboard-section" id="rentals">
+          <div class="card-block-head" style="margin-bottom:18px;">
+            <h3 style="font-size:19px;">Active Rental Items</h3>
+            <p>5 items currently rented to your Nellore address</p>
+          </div>
+          <div class="rentals-grid">
+            <div class="rental-item-card">
+              <img src="../Images/dash2.avif" alt="Nordic 3-seater sofa">
+              <div class="rental-item-body">
+                <span class="status-pill">Active</span>
+                <h4 style="margin-top:10px;">Nordic 3-Seater Sofa</h4>
+                <div class="rental-cat">Living Room · Started Mar 12, 2026</div>
+                <div class="rental-meta-row"><span>Monthly Rent</span><strong>₹2,499</strong></div>
+                <div class="rental-meta-row"><span>Next Due</span><strong>Aug 12, 2026</strong></div>
+                <div class="rental-item-actions">
+                  <button class="btn-outline btn-sm request-btn" data-item="Nordic 3-Seater Sofa"
+                    data-type="Swap">Swap</button>
+                  <button class="btn-outline btn-sm request-btn" data-item="Nordic 3-Seater Sofa"
+                    data-type="Early Return">Return</button>
+                </div>
+              </div>
+            </div>
+            <div class="rental-item-card">
+              <img src="../Images/dash3.avif" alt="Study desk and chair set">
+              <div class="rental-item-body">
+                <span class="status-pill">Active</span>
+                <h4 style="margin-top:10px;">Study Desk &amp; Chair Set</h4>
+                <div class="rental-cat">Home Office · Started May 2, 2026</div>
+                <div class="rental-meta-row"><span>Monthly Rent</span><strong>₹1,299</strong></div>
+                <div class="rental-meta-row"><span>Next Due</span><strong style="color:var(--danger)">Aug 2,
+                    2026</strong></div>
+                <div class="rental-item-actions">
+                  <button class="btn-outline btn-sm request-btn" data-item="Study Desk &amp; Chair Set"
+                    data-type="Swap">Swap</button>
+                  <button class="btn-outline btn-sm request-btn" data-item="Study Desk &amp; Chair Set"
+                    data-type="Early Return">Return</button>
+                </div>
+              </div>
+            </div>
+            <div class="rental-item-card">
+              <img src="../Images/dash4.avif" alt="Queen bed frame">
+              <div class="rental-item-body">
+                <span class="status-pill">Active</span>
+                <h4 style="margin-top:10px;">Queen Bed Frame</h4>
+                <div class="rental-cat">Bedroom · Started Jun 20, 2026</div>
+                <div class="rental-meta-row"><span>Monthly Rent</span><strong>₹1,899</strong></div>
+                <div class="rental-meta-row"><span>Next Due</span><strong>Aug 20, 2026</strong></div>
+                <div class="rental-item-actions">
+                  <button class="btn-outline btn-sm request-btn" data-item="Queen Bed Frame"
+                    data-type="Swap">Swap</button>
+                  <button class="btn-outline btn-sm request-btn" data-item="Queen Bed Frame"
+                    data-type="Early Return">Return</button>
+                </div>
+              </div>
+            </div>
+            <div class="rental-item-card">
+              <img src="../Images/dash5.avif" alt="Dining table set">
+              <div class="rental-item-body">
+                <span class="status-pill">Active</span>
+                <h4 style="margin-top:10px;">Dining Table Set (4-seater)</h4>
+                <div class="rental-cat">Dining · Started Apr 18, 2026</div>
+                <div class="rental-meta-row"><span>Monthly Rent</span><strong>₹2,199</strong></div>
+                <div class="rental-meta-row"><span>Next Due</span><strong>Aug 18, 2026</strong></div>
+                <div class="rental-item-actions">
+                  <button class="btn-outline btn-sm request-btn" data-item="Dining Table Set"
+                    data-type="Swap">Swap</button>
+                  <button class="btn-outline btn-sm request-btn" data-item="Dining Table Set"
+                    data-type="Early Return">Return</button>
+                </div>
+              </div>
+            </div>
+            <div class="rental-item-card">
+              <img src="../Images/dash6.avif" alt="Bookshelf unit">
+              <div class="rental-item-body">
+                <span class="status-pill">Active</span>
+                <h4 style="margin-top:10px;">Bookshelf Unit</h4>
+                <div class="rental-cat">Study · Started Jul 5, 2026</div>
+                <div class="rental-meta-row"><span>Monthly Rent</span><strong>₹899</strong></div>
+                <div class="rental-meta-row"><span>Next Due</span><strong>Sep 5, 2026</strong></div>
+                <div class="rental-item-actions">
+                  <button class="btn-outline btn-sm request-btn" data-item="Bookshelf Unit"
+                    data-type="Swap">Swap</button>
+                  <button class="btn-outline btn-sm request-btn" data-item="Bookshelf Unit"
+                    data-type="Early Return">Return</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="dashboard-section" id="wishlist">
+          <div class="card-block-head" style="margin-bottom:18px;">
+            <h3 style="font-size:19px;">Saved For Later</h3>
+            <p>4 items in your wishlist</p>
+          </div>
+          <div class="wishlist-grid" id="wishlistGrid">
+            <div class="wishlist-card" data-name="Velvet Accent Chair">
+              <img src="../Images/dash7.avif" alt="Velvet accent chair">
+              <div class="wishlist-body">
+                <h4>Velvet Accent Chair</h4>
+                <div class="wl-price">₹799 / mo</div>
+                <div class="wishlist-actions">
+                  <button class="btn-primary btn-sm move-to-rentals-btn">Rent Now</button>
+                  <button class="btn-outline btn-sm remove-wishlist-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+            <div class="wishlist-card" data-name="Bookcase Ladder">
+              <img src="../Images/dash8.avif" alt="Ladder bookcase">
+              <div class="wishlist-body">
+                <h4>Bookcase Ladder</h4>
+                <div class="wl-price">₹649 / mo</div>
+                <div class="wishlist-actions">
+                  <button class="btn-primary btn-sm move-to-rentals-btn">Rent Now</button>
+                  <button class="btn-outline btn-sm remove-wishlist-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+            <div class="wishlist-card" data-name="Standing Arc Lamp">
+              <img src="../Images/dash9.avif" alt="Standing arc lamp">
+              <div class="wishlist-body">
+                <h4>Standing Arc Lamp</h4>
+                <div class="wl-price">₹399 / mo</div>
+                <div class="wishlist-actions">
+                  <button class="btn-primary btn-sm move-to-rentals-btn">Rent Now</button>
+                  <button class="btn-outline btn-sm remove-wishlist-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+            <div class="wishlist-card" data-name="Diamond Weave Rug">
+              <img src="../Images/dash10.avif" alt="Diamond weave rug">
+              <div class="wishlist-body">
+                <h4>Diamond Weave Rug</h4>
+                <div class="wl-price">₹549 / mo</div>
+                <div class="wishlist-actions">
+                  <button class="btn-primary btn-sm move-to-rentals-btn">Rent Now</button>
+                  <button class="btn-outline btn-sm remove-wishlist-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="dashboard-section" id="payments">
+          <div class="due-banner">
+            <div class="due-banner-info">
+              <strong>₹1,299 due on Aug 2, 2026</strong>
+              <span>Study Desk &amp; Chair Set — monthly rent</span>
+            </div>
+            <button class="btn-primary" id="payNowBtn">Pay Now</button>
+          </div>
+
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>Saved Payment Methods</h3><button class="btn-outline btn-sm">Add Method</button>
+            </div>
+            <div class="payment-methods-grid">
+              <div class="payment-method-card">
+                <div class="pm-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <line x1="2" y1="10" x2="22" y2="10" />
+                  </svg></div>
+                <div><strong>HDFC Credit Card</strong><span>•••• 4821 — Primary</span></div>
+              </div>
+              <div class="payment-method-card">
+                <div class="pm-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <line x1="2" y1="10" x2="22" y2="10" />
+                  </svg></div>
+                <div><strong>UPI</strong><span>ananya@okhdfcbank</span></div>
+              </div>
+              <div class="payment-method-card">
+                <div class="pm-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M2 21v-2a4 4 0 014-4h6a4 4 0 014 4v2" />
+                  </svg></div>
+                <div><strong>Referral Wallet</strong><span>₹500 available</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>Payment History</h3>
+            </div>
+            <div class="table-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Invoice</th>
+                    <th>Item</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#INV-2231</td>
+                    <td>Bookshelf Unit</td>
+                    <td>₹899</td>
+                    <td>Jul 5, 2026</td>
+                    <td><span class="status-badge paid">Paid</span></td>
+                    <td><a href="#"
+                        style="font-size:12px;color:var(--primary);font-weight:700;text-decoration:none;">Download</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#INV-2214</td>
+                    <td>Dining Table Set</td>
+                    <td>₹2,199</td>
+                    <td>Jun 18, 2026</td>
+                    <td><span class="status-badge paid">Paid</span></td>
+                    <td><a href="#"
+                        style="font-size:12px;color:var(--primary);font-weight:700;text-decoration:none;">Download</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#INV-2207</td>
+                    <td>Nordic 3-Seater Sofa</td>
+                    <td>₹2,499</td>
+                    <td>Jul 12, 2026</td>
+                    <td><span class="status-badge paid">Paid</span></td>
+                    <td><a href="#"
+                        style="font-size:12px;color:var(--primary);font-weight:700;text-decoration:none;">Download</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#INV-2183</td>
+                    <td>Queen Bed Frame</td>
+                    <td>₹1,899</td>
+                    <td>Jul 20, 2026</td>
+                    <td><span class="status-badge paid">Paid</span></td>
+                    <td><a href="#"
+                        style="font-size:12px;color:var(--primary);font-weight:700;text-decoration:none;">Download</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#INV-2145</td>
+                    <td>Study Desk &amp; Chair Set</td>
+                    <td>₹1,299</td>
+                    <td>Jul 2, 2026</td>
+                    <td><span class="status-badge paid">Paid</span></td>
+                    <td><a href="#"
+                        style="font-size:12px;color:var(--primary);font-weight:700;text-decoration:none;">Download</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="dashboard-section" id="swaps">
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>New Swap / Return Request</h3>
+              <p>1 free swap available this cycle</p>
+            </div>
+            <form id="swapForm" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="swapItem">Rental Item</label>
+                  <select id="swapItem" required>
+                    <option value="" disabled selected>Select an item</option>
+                    <option>Nordic 3-Seater Sofa</option>
+                    <option>Study Desk &amp; Chair Set</option>
+                    <option>Queen Bed Frame</option>
+                    <option>Dining Table Set</option>
+                    <option>Bookshelf Unit</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Request Type</label>
+                  <div class="radio-group" style="margin-top:6px;">
+                    <label class="radio-option"><input type="radio" name="swapType" value="Swap" checked> Swap
+                      Item</label>
+                    <label class="radio-option"><input type="radio" name="swapType" value="Early Return"> Early
+                      Return</label>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label for="swapReason">Reason</label>
+                <textarea id="swapReason" placeholder="Tell us briefly why you'd like to swap or return this item..."
+                  required></textarea>
+                <span class="form-note-inline" id="swapFormNote"></span>
+              </div>
+              <button type="submit" class="btn-primary">Submit Request</button>
+            </form>
+          </div>
+
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>Request History</h3>
+            </div>
+            <div class="table-scroll">
+              <table class="data-table" id="requestHistoryTable">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Type</th>
+                    <th>Requested</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="requestHistoryBody">
+                  <tr>
+                    <td>Coffee Table</td>
+                    <td>Swap</td>
+                    <td>Jul 10, 2026</td>
+                    <td><span class="status-badge approved">Approved</span></td>
+                  </tr>
+                  <tr>
+                    <td>Bookshelf</td>
+                    <td>Early Return</td>
+                    <td>Jun 28, 2026</td>
+                    <td><span class="status-badge approved">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td>Recliner Chair</td>
+                    <td>Swap</td>
+                    <td>May 14, 2026</td>
+                    <td><span class="status-badge approved">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td>Side Table</td>
+                    <td>Early Return</td>
+                    <td>Apr 30, 2026</td>
+                    <td><span class="status-badge approved">Completed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="dashboard-section" id="addresses">
+          <div class="card-block-head" style="margin-bottom:18px;">
+            <h3 style="font-size:19px;">Saved Addresses</h3>
+            <button class="btn-outline btn-sm">Add New Address</button>
+          </div>
+          <div class="address-grid">
+            <div class="address-card">
+              <span class="address-tag">Home</span>
+              <p>Ananya Rao<br>4th Cross, Dargamitta<br>Nellore, Andhra Pradesh 524003<br>+91 98765 43210</p>
+              <div class="address-actions">
+                <button class="btn-outline btn-sm">Edit</button>
+                <button class="btn-danger-outline">Delete</button>
+              </div>
+            </div>
+            <div class="address-card">
+              <span class="address-tag">Office</span>
+              <p>Ananya Rao<br>2nd Floor, 100ft Road, Indiranagar<br>Bangalore, Karnataka 560038<br>+91 80 2345 6789</p>
+              <div class="address-actions">
+                <button class="btn-outline btn-sm">Edit</button>
+                <button class="btn-danger-outline">Delete</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="dashboard-section" id="referral">
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>Invite Friends, Earn Credit</h3>
+              <p>Both of you get ₹500 rental credit</p>
+            </div>
+            <div class="referral-code-box">
+              <div><span style="font-size:11.5px; opacity:0.6; display:block; margin-bottom:4px;">Your referral
+                  code</span><strong id="referralCode">ANANYA200</strong></div>
+              <button class="btn-primary btn-sm" id="copyReferralBtn">Copy Code</button>
+            </div>
+            <div class="referral-stats">
+              <div class="metric-card">
+                <div class="metric-value">4</div>
+                <div class="metric-label">Friends Referred</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">₹2,000</div>
+                <div class="metric-label">Total Earned</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">₹500</div>
+                <div class="metric-label">Wallet Balance</div>
+              </div>
+            </div>
+            <div class="share-buttons">
+              <button class="btn-outline btn-sm">Share via WhatsApp</button>
+              <button class="btn-outline btn-sm">Share via Email</button>
+              <button class="btn-outline btn-sm">Copy Invite Link</button>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="dashboard-section" id="notifications">
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>All Notifications</h3><button class="btn-outline btn-sm" id="markAllReadBtn2">Mark all as
+                read</button>
+            </div>
+            <div id="notifFullList"></div>
+          </div>
+        </section>
+
+
+        <section class="dashboard-section" id="help">
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>Frequently Asked Questions</h3>
+            </div>
+            <div id="faqList">
+              <div class="faq-item">
+                <button class="faq-question">How does the free swap work? <svg width="16" height="16"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg></button>
+                <div class="faq-answer">
+                  <p>Every rental plan includes one free swap every 6 months. Just raise a request from the Swap &amp;
+                    Returns page and we'll schedule pickup and delivery of the replacement item.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">When is my rent charged? <svg width="16" height="16" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg></button>
+                <div class="faq-answer">
+                  <p>Rent is charged monthly on the date you first started that rental. You'll get a reminder 5 days
+                    before each due date.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">Can I end a rental early? <svg width="16" height="16" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg></button>
+                <div class="faq-answer">
+                  <p>Yes — submit an Early Return request from the item's card. Minimum rental periods and pickup
+                    charges vary by item and are shown before you confirm.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question">How do I redeem referral credit? <svg width="16" height="16"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg></button>
+                <div class="faq-answer">
+                  <p>Referral credit lands in your Referral Wallet automatically and can be applied as a payment method
+                    at checkout on the Payments page.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>Still Need Help?</h3>
+            </div>
+            <form id="helpForm">
+              <div class="form-grid">
+                <div class="field"><label for="helpSubject">Subject</label><input type="text" id="helpSubject"
+                    placeholder="e.g. Delivery delay" required></div>
+                <div class="field"><label for="helpOrder">Related Item (optional)</label><input type="text"
+                    id="helpOrder" placeholder="e.g. Queen Bed Frame"></div>
+              </div>
+              <div class="field">
+                <label for="helpMessage">Message</label>
+                <textarea id="helpMessage" placeholder="Describe your issue and we'll get back within 24 hours..."
+                  required></textarea>
+              </div>
+              <button type="submit" class="btn-primary">Send Message</button>
+              <span class="form-note-inline" id="helpFormNote"></span>
+            </form>
+          </div>
+        </section>
+
+
+        <section class="dashboard-section" id="profile">
+          <div class="card-block">
+            <div class="profile-header">
+              <img src="../Images/dash11.avif" alt="Ananya Rao">
+              <div>
+                <h3>Ananya Rao</h3><span>Customer since March 2026 · Nellore Showroom</span>
+              </div>
+            </div>
+            <form id="profileForm">
+              <div class="form-grid">
+                <div class="field"><label for="pFirst">First Name</label><input type="text" id="pFirst" value="Ananya"
+                    disabled></div>
+                <div class="field"><label for="pLast">Last Name</label><input type="text" id="pLast" value="Rao"
+                    disabled></div>
+                <div class="field"><label for="pEmail">Email Address</label><input type="email" id="pEmail"
+                    value="ananya.rao@example.com" disabled></div>
+                <div class="field"><label for="pPhone">Phone Number</label><input type="tel" id="pPhone"
+                    value="+91 98765 43210" disabled></div>
+              </div>
+              <div class="field"><label for="pAddress">Delivery Address</label><textarea id="pAddress"
+                  disabled>4th Cross, Dargamitta, Nellore, Andhra Pradesh 524003</textarea></div>
+              <div style="display:flex; gap:12px;">
+                <button type="button" class="btn-outline" id="editProfileBtn">Edit Details</button>
+                <button type="submit" class="btn-primary" id="saveProfileBtn" style="display:none;">Save
+                  Changes</button>
+              </div>
+              <span class="form-note-inline" id="profileFormNote"></span>
+            </form>
+          </div>
+        </section>
+
+
+        <section class="dashboard-section" id="settings">
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>Notification Preferences</h3>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row-label"><strong>Email Notifications</strong><span>Payment reminders and order
+                  updates</span></div>
+              <label class="switch"><input type="checkbox" checked><span class="switch-slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row-label"><strong>SMS Notifications</strong><span>Delivery and pickup alerts</span>
+              </div>
+              <label class="switch"><input type="checkbox" checked><span class="switch-slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row-label"><strong>Push Notifications</strong><span>Real-time app alerts</span></div>
+              <label class="switch"><input type="checkbox"><span class="switch-slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div class="settings-row-label"><strong>Marketing Emails</strong><span>New arrivals and seasonal
+                  offers</span></div>
+              <label class="switch"><input type="checkbox" checked><span class="switch-slider"></span></label>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>Language &amp; Region</h3>
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="langSelect">Preferred Language</label>
+                <select id="langSelect">
+                  <option>English</option>
+                  <option>Telugu</option>
+                  <option>Hindi</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="currencySelect">Currency</label>
+                <select id="currencySelect">
+                  <option>INR (₹)</option>
+                  <option>USD ($)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-block">
+            <div class="card-block-head">
+              <h3>Security</h3>
+            </div>
+            <form id="passwordForm">
+              <div class="form-grid">
+                <div class="field"><label for="currentPw">Current Password</label><input type="password" id="currentPw"
+                    placeholder="Enter current password" required></div>
+                <div class="field"><label for="newPw">New Password</label><input type="password" id="newPw"
+                    placeholder="Enter new password" required></div>
+              </div>
+              <button type="submit" class="btn-primary">Update Password</button>
+              <span class="form-note-inline" id="pwFormNote"></span>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+
+
+
+
+      const rtlToggle = document.getElementById('rtlToggle');
+      if (localStorage.getItem('rentframe-dir') === 'rtl') document.body.setAttribute('dir', 'rtl');
+      rtlToggle.addEventListener('click', () => {
+        const isRTL = document.body.getAttribute('dir') === 'rtl';
+        document.body.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
+        localStorage.setItem('rentframe-dir', isRTL ? 'ltr' : 'rtl');
+      });
+
+
+      const notifications = [
+        { text: 'Payment of ₹1,299 is due in 9 days for Study Desk & Chair Set.', time: '2 hours ago', read: false },
+        { text: 'Your swap request for Coffee Table was approved.', time: '1 day ago', read: false },
+        { text: 'Referral bonus of ₹500 credited to your wallet.', time: '2 days ago', read: false },
+        { text: 'New arrivals added to the Home Office collection.', time: '4 days ago', read: true },
+        { text: 'Invoice #INV-2231 generated for Bookshelf Unit.', time: '5 days ago', read: true },
+        { text: 'Your saved address "Office" was updated successfully.', time: '1 week ago', read: true }
+      ];
+
+      function unreadCount() { return notifications.filter(n => !n.read).length; }
+      function renderNotifBadges() {
+        const count = unreadCount();
+        const badge = document.getElementById('notifSidebarBadge');
+        badge.textContent = count;
+        badge.style.display = count ? 'flex' : 'none';
+        document.getElementById('notifDot').style.display = count ? 'block' : 'none';
+      }
+      function notifRowHTML(n) {
+        return `<div class="notif-item ${n.read ? 'read' : ''}"><span class="notif-dot"></span><p>${n.text}<span>${n.time}</span></p></div>`;
+      }
+      function renderNotifDropdown() { document.getElementById('notifDropdownList').innerHTML = notifications.map(notifRowHTML).join(''); }
+      function renderNotifFullList() {
+        const wrap = document.getElementById('notifFullList');
+        wrap.innerHTML = notifications.length ? notifications.map(notifRowHTML).join('') : '<p class="empty-state">You\'re all caught up.</p>';
+      }
+      function markAllRead() {
+        notifications.forEach(n => n.read = true);
+        renderNotifBadges(); renderNotifDropdown(); renderNotifFullList();
+      }
+      renderNotifBadges(); renderNotifDropdown(); renderNotifFullList();
+      document.getElementById('markAllReadBtn').addEventListener('click', markAllRead);
+      document.getElementById('markAllReadBtn2').addEventListener('click', markAllRead);
+
+
+      const sidebarLinks = document.querySelectorAll('.sidebar-link[data-target]');
+      const sections = document.querySelectorAll('.dashboard-section');
+      const pageTitle = document.getElementById('pageTitle');
+      const pageSub = document.getElementById('pageSub');
+
+      function goToSection(target, title, sub) {
+        sections.forEach(s => s.classList.toggle('active', s.id === target));
+        sidebarLinks.forEach(l => l.classList.toggle('active', l.dataset.target === target));
+        if (title) pageTitle.textContent = title;
+        if (sub) pageSub.textContent = sub;
+        document.querySelector('.dashboard-content').scrollTo({ top: 0, behavior: 'smooth' });
+        closeSidebar();
+        closeAllDropdowns();
+      }
+      sidebarLinks.forEach(link => link.addEventListener('click', () => goToSection(link.dataset.target, link.dataset.title, link.dataset.sub)));
+      document.querySelectorAll('[data-target]').forEach(el => {
+        if (el.classList.contains('sidebar-link')) return;
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = el.dataset.target;
+          const linkEl = document.querySelector(`.sidebar-link[data-target="${target}"]`);
+          goToSection(target, linkEl ? linkEl.dataset.title : null, linkEl ? linkEl.dataset.sub : null);
+        });
+      });
+
+
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('show'); }
+      function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('show'); }
+      hamburgerBtn.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+      overlay.addEventListener('click', closeSidebar);
+
+
+      const notifBtn = document.getElementById('notifBtn');
+      const notifPanel = document.getElementById('notifPanel');
+      const profileBtn = document.getElementById('profileBtn');
+      const profilePanel = document.getElementById('profilePanel');
+      function closeAllDropdowns() { notifPanel.classList.remove('show'); profilePanel.classList.remove('show'); }
+      notifBtn.addEventListener('click', (e) => { e.stopPropagation(); const show = !notifPanel.classList.contains('show'); closeAllDropdowns(); if (show) notifPanel.classList.add('show'); });
+      profileBtn.addEventListener('click', (e) => { e.stopPropagation(); const show = !profilePanel.classList.contains('show'); closeAllDropdowns(); if (show) profilePanel.classList.add('show'); });
+      document.addEventListener('click', closeAllDropdowns);
+      notifPanel.addEventListener('click', (e) => e.stopPropagation());
+      profilePanel.addEventListener('click', (e) => e.stopPropagation());
+
+
+      function handleLogout() {
+        if (confirm('Are you sure you want to log out?')) window.location.href = 'login.html';
+      }
+      document.getElementById('sidebarLogoutBtn').addEventListener('click', handleLogout);
+      document.getElementById('profileLogoutBtn').addEventListener('click', handleLogout);
+
+
+      document.getElementById('payNowBtn').addEventListener('click', function () {
+        const btn = this; const original = btn.textContent;
+        btn.disabled = true; btn.textContent = 'Processing...';
+        setTimeout(() => {
+          btn.disabled = false; btn.textContent = original;
+          alert('Payment successful! A receipt has been emailed to you.');
+          document.getElementById('paymentsBadge').style.display = 'none';
+        }, 900);
+      });
+
+
+      document.querySelectorAll('.request-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          goToSection('swaps', 'Swap & Returns', 'Request an item swap or an early return.');
+          const select = document.getElementById('swapItem');
+          const match = Array.from(select.options).find(o => btn.dataset.item.startsWith(o.value));
+          if (match) select.value = match.value;
+          document.querySelectorAll('input[name="swapType"]').forEach(r => r.checked = (r.value === btn.dataset.type));
+          document.getElementById('swapReason').focus();
+        });
+      });
+
+
+      const swapForm = document.getElementById('swapForm');
+      const swapFormNote = document.getElementById('swapFormNote');
+      const requestHistoryBody = document.getElementById('requestHistoryBody');
+      swapForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const item = document.getElementById('swapItem').value;
+        const type = document.querySelector('input[name="swapType"]:checked').value;
+        const reason = document.getElementById('swapReason').value.trim();
+        if (!item || reason.length < 5) {
+          swapFormNote.textContent = 'Please choose an item and describe your reason (5+ characters).';
+          swapFormNote.classList.add('show');
+          return;
+        }
+        const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${item}</td><td>${type}</td><td>${dateStr}</td><td><span class="status-badge pending">Pending</span></td>`;
+        requestHistoryBody.prepend(row);
+        swapFormNote.textContent = 'Request submitted! We\'ll review it within 24 hours.';
+        swapFormNote.classList.add('show');
+        swapForm.reset();
+        setTimeout(() => swapFormNote.classList.remove('show'), 4000);
+      });
+
+
+      document.querySelectorAll('.remove-wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const card = btn.closest('.wishlist-card');
+          card.remove();
+          const badge = document.getElementById('wishlistBadge');
+          badge.textContent = Math.max(0, parseInt(badge.textContent) - 1);
+        });
+      });
+      document.querySelectorAll('.move-to-rentals-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.closest('.wishlist-card').dataset.name;
+          alert(`${name} has been added to your rental cart!`);
+        });
+      });
+
+
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+          const item = q.closest('.faq-item');
+          const wasOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+          if (!wasOpen) item.classList.add('open');
+        });
+      });
+
+
+      document.getElementById('helpForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const note = document.getElementById('helpFormNote');
+        note.textContent = 'Message sent — our support team will reply within 24 hours.';
+        note.classList.add('show');
+        e.target.reset();
+        setTimeout(() => note.classList.remove('show'), 4000);
+      });
+
+
+      const editProfileBtn = document.getElementById('editProfileBtn');
+      const saveProfileBtn = document.getElementById('saveProfileBtn');
+      const profileInputs = document.querySelectorAll('#profileForm input, #profileForm textarea');
+      const profileFormNote = document.getElementById('profileFormNote');
+      editProfileBtn.addEventListener('click', () => {
+        profileInputs.forEach(i => i.disabled = false);
+        profileInputs[0].focus();
+        editProfileBtn.style.display = 'none';
+        saveProfileBtn.style.display = 'inline-flex';
+      });
+      document.getElementById('profileForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        profileInputs.forEach(i => i.disabled = true);
+        editProfileBtn.style.display = 'inline-flex';
+        saveProfileBtn.style.display = 'none';
+        profileFormNote.textContent = 'Profile updated successfully.';
+        profileFormNote.classList.add('show');
+        setTimeout(() => profileFormNote.classList.remove('show'), 4000);
+      });
+
+
+      document.getElementById('passwordForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const note = document.getElementById('pwFormNote');
+        note.textContent = 'Password updated successfully.';
+        note.classList.add('show');
+        e.target.reset();
+        setTimeout(() => note.classList.remove('show'), 4000);
+      });
+
+
+      document.getElementById('copyReferralBtn').addEventListener('click', function () {
+        const code = document.getElementById('referralCode').textContent;
+        navigator.clipboard?.writeText(code).catch(() => { });
+        const original = this.textContent;
+        this.textContent = 'Copied!';
+        setTimeout(() => this.textContent = original, 1500);
+      });
+
+    });
+  </script>
+
+  <script src="../js/navbar.js"></script>
+</body>
+
+</html>

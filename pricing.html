@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="../global.css">
+
+  <link rel="stylesheet" href="../pricing.css">
+</head>
+
+<body>
+  <div id="site-navbar"></div>
+
+
+  <section class="section pricing-hero" id="pricingHero">
+    <div class="hero-bg" id="heroBg"></div>
+
+    <div class="hero-inner">
+      <span class="hero-eyebrow reveal">Simple &amp; Transparent</span>
+
+      <h1 class="hero-title reveal reveal-delay-1">
+        Pricing That Fits Your <span class="accent-space">Space</span>
+      </h1>
+
+      <div class="hero-divider reveal reveal-delay-2"></div>
+
+      <p class="hero-sub reveal reveal-delay-2">No lock-in contracts, no hidden fees. Pick a plan, choose your pieces,
+        and pay monthly for as long as you need them.</p>
+
+      <div class="hero-cta-row reveal reveal-delay-3">
+        <a href="#plans" class="btn-primary">View Plans</a>
+        <a href="#contact" class="btn-outline">Talk to Us</a>
+      </div>
+
+      <div class="hero-stats-row reveal reveal-delay-4">
+        <div class="hero-stat"><strong data-count="10000" data-suffix="+">0</strong><span>Happy Renters</span></div>
+        <div class="hero-stat"><strong data-static="Free">0</strong><span>Delivery &amp; Setup</span></div>
+        <div class="hero-stat"><strong data-count="1">0</strong><span>Free Swap / 6 Months</span></div>
+        <div class="hero-stat"><strong data-static="Zero">0</strong><span>Cancellation Fee</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-cue reveal reveal-delay-4"></div>
+  </section>
+
+  <script>
+    (function () {
+
+      function initReveal() {
+        var items = document.querySelectorAll('.pricing-hero .reveal');
+        items.forEach(function (el, idx) {
+          setTimeout(function () {
+            el.classList.add('is-visible');
+          }, 60);
+        });
+      }
+
+      function animateCount(el) {
+        var targetVal = parseInt(el.getAttribute('data-count'), 10);
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
+        var staticVal = el.getAttribute('data-static');
+        if (staticVal) { el.textContent = staticVal; return; }
+
+        var duration = 1400;
+        var startTime = null;
+
+        function step(ts) {
+          if (!startTime) startTime = ts;
+          var progress = Math.min((ts - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = Math.floor(eased * targetVal);
+          el.textContent = prefix + current.toLocaleString() + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      var statNodes = document.querySelectorAll('.hero-stat strong');
+      var statsRow = document.querySelector('.hero-stats-row');
+      var statsTriggered = false;
+
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && !statsTriggered) {
+              statsTriggered = true;
+              setTimeout(function () { statNodes.forEach(animateCount); }, 900);
+            }
+          });
+        }, { threshold: 0.3 });
+        io.observe(statsRow);
+      } else {
+        statNodes.forEach(animateCount);
+      }
+
+      var heroBg = document.getElementById('heroBg');
+      var section = document.getElementById('pricingHero');
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!reduceMotion) {
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () {
+            var rect = section.getBoundingClientRect();
+            var progress = Math.min(Math.max(-rect.top / rect.height, 0), 1);
+            heroBg.style.transform = 'scale(1.08) translateY(' + (progress * 40) + 'px)';
+            ticking = false;
+          });
+        }, { passive: true });
+      }
+
+      document.addEventListener('DOMContentLoaded', initReveal);
+    })();
+  </script>
+
+
+
+
+  <section class="section pricing-plans" style="background:var(--sbg2)">
+    <div class="section-heading">
+      <span class="eyebrow">Choose Your Plan</span>
+      <h2>Plans Built Around <span class="accent">You</span></h2>
+      <div class="divider"></div>
+      <p>Every plan includes free delivery, assembly, and damage protection — swap or upgrade any time.</p>
+    </div>
+
+    <div class="billing-toggle-wrap">
+      <div class="billing-toggle" id="billingToggle">
+        <div class="toggle-pill" id="togglePill"></div>
+        <button type="button" class="active" data-cycle="monthly">Monthly</button>
+        <button type="button" data-cycle="quarterly">Quarterly<span class="save-tag">Save 5%</span></button>
+        <button type="button" data-cycle="halfyearly">Half-Yearly<span class="save-tag">Save 10%</span></button>
+        <button type="button" data-cycle="yearly">Yearly<span class="save-tag">Save 18%</span></button>
+      </div>
+    </div>
+
+    <div class="plans-grid" id="plansGrid">
+
+      <div class="plan-card" data-plan="essential">
+        <div class="plan-name">Essential</div>
+        <div class="plan-tagline">Great for a single room or first apartment</div>
+        <div class="plan-price"><span class="amount">₹1,499</span><span class="period"> / month</span></div>
+        <div class="plan-billed-note">Billed monthly</div>
+        <div class="plan-save-badge">Save ₹0</div>
+        <div class="plan-deposit">Refundable security deposit: <strong>₹2,000</strong></div>
+        <ul class="plan-features">
+
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>Free delivery &amp; assembly</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>Basic damage protection</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>1 free swap every 6 months</li>
+        </ul>
+        <button class="btn-outline">Choose Essential</button>
+      </div>
+
+      <div class="plan-card featured" data-plan="comfort">
+        <span class="plan-badge">Most Popular</span>
+        <div class="plan-name">Comfort</div>
+        <div class="plan-tagline">Furnish a full 1–2 BHK home</div>
+        <div class="plan-price"><span class="amount">₹2,999</span><span class="period"> / month</span></div>
+        <div class="plan-billed-note">Billed monthly</div>
+        <div class="plan-save-badge">Save ₹0</div>
+        <div class="plan-deposit">Refundable security deposit: <strong>₹4,000</strong></div>
+        <ul class="plan-features">
+
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>Free delivery, assembly &amp; pickup</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>Full damage protection</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>2 free swaps every 6 months</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>Priority support</li>
+        </ul>
+        <button class="btn-primary">Choose Comfort</button>
+      </div>
+
+      <div class="plan-card" data-plan="premium">
+        <div class="plan-name">Premium</div>
+        <div class="plan-tagline">Full home &amp; office setups</div>
+        <div class="plan-price"><span class="amount">₹5,499</span><span class="period"> / month</span></div>
+        <div class="plan-billed-note">Billed monthly</div>
+        <div class="plan-save-badge">Save ₹0</div>
+        <div class="plan-deposit">Refundable security deposit: <strong>₹7,500</strong></div>
+        <ul class="plan-features">
+
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>White-glove delivery &amp; styling</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>Zero-deductible protection</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>Unlimited swaps</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>Dedicated account manager</li>
+        </ul>
+        <button class="btn-outline">Choose Premium</button>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    (function () {
+
+      var CYCLES = {
+        monthly: { label: "Monthly", months: 1, discount: 0 },
+        quarterly: { label: "Quarterly", months: 3, discount: 0.05 },
+        halfyearly: { label: "Half-Yearly", months: 6, discount: 0.10 },
+        yearly: { label: "Yearly", months: 12, discount: 0.18 }
+      };
+
+      var PLANS = {
+        essential: { base: 1499, deposit: 2000 },
+        comfort: { base: 2999, deposit: 4000 },
+        premium: { base: 5499, deposit: 7500 }
+      };
+
+      function formatINR(num) {
+        return "₹" + Math.round(num).toLocaleString('en-IN');
+      }
+
+      function renderCycle(cycleKey) {
+        var cycle = CYCLES[cycleKey];
+
+        document.querySelectorAll('.plan-card').forEach(function (card) {
+          var planKey = card.getAttribute('data-plan');
+          var plan = PLANS[planKey];
+          if (!plan) return;
+
+          var effectiveMonthly = plan.base * (1 - cycle.discount);
+          var totalBilled = effectiveMonthly * cycle.months;
+          var savings = (plan.base - effectiveMonthly) * cycle.months;
+
+          var amountEl = card.querySelector('.amount');
+          var noteEl = card.querySelector('.plan-billed-note');
+          var badgeEl = card.querySelector('.plan-save-badge');
+
+          card.classList.add('price-updating');
+
+          setTimeout(function () {
+            amountEl.textContent = formatINR(effectiveMonthly);
+
+            if (cycle.months === 1) {
+              noteEl.textContent = "Billed monthly";
+            } else {
+              noteEl.textContent = "Billed " + formatINR(totalBilled) + " every " + cycle.months + " months";
+            }
+
+            if (savings > 0) {
+              badgeEl.textContent = "You save " + formatINR(savings) + " total";
+              badgeEl.classList.add('visible');
+            } else {
+              badgeEl.classList.remove('visible');
+            }
+
+            card.classList.remove('price-updating');
+          }, 160);
+        });
+      }
+
+      var toggle = document.getElementById('billingToggle');
+      var pill = document.getElementById('togglePill');
+      var buttons = toggle.querySelectorAll('button');
+
+      function movePill(btn) {
+        pill.style.width = btn.offsetWidth + 'px';
+        pill.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+      }
+
+      function setActive(btn) {
+        buttons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        movePill(btn);
+        renderCycle(btn.getAttribute('data-cycle'));
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () { setActive(btn); });
+      });
+
+      window.addEventListener('resize', function () {
+        var activeBtn = toggle.querySelector('button.active');
+        if (activeBtn) movePill(activeBtn);
+      });
+
+
+      window.addEventListener('load', function () {
+        setActive(buttons[0]);
+      });
+
+      setTimeout(function () { if (pill.style.width === '') setActive(buttons[0]); }, 50);
+
+    })();
+  </script>
+
+  <section class="section pricing-estimator" style="background:var(--sbg1)">
+    <div class="section-heading">
+      <span class="eyebrow">Build Your Own</span>
+      <h2>Estimate Your <span class="accent">Monthly Rent</span></h2>
+      <div class="divider"></div>
+      <p>Pick a furniture type, material and rental duration to see an instant estimate. Longer durations unlock the
+        same discounts as our pricing plans — 5%, 10% and 18% off.</p>
+    </div>
+
+    <div class="estimator-wrap">
+      <form class="estimator-form" id="estimatorForm">
+        <div class="estimator-row">
+          <div class="field">
+            <label for="furnitureType">Furniture Type</label>
+            <select id="furnitureType">
+              <option value="sofa" data-base="1800">Sofa</option>
+              <option value="bed" data-base="1500">Bed Frame</option>
+              <option value="dining" data-base="1600">Dining Table</option>
+              <option value="wardrobe" data-base="1200">Wardrobe</option>
+              <option value="desk" data-base="900">Study Desk</option>
+              <option value="recliner" data-base="1400">Recliner Chair</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="materialType">Material</label>
+            <select id="materialType">
+              <option value="fabric" data-mult="1">Fabric</option>
+              <option value="leather" data-mult="1.3">Leather</option>
+              <option value="solidwood" data-mult="1.25">Solid Wood</option>
+              <option value="engineeredwood" data-mult="1">Engineered Wood</option>
+              <option value="metal" data-mult="1.1">Metal</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="estimator-row">
+          <div class="field">
+            <label for="rentalDuration">Rental Duration</label>
+            <select id="rentalDuration">
+              <option value="1" data-discount="0">1 Month</option>
+              <option value="3" data-discount="0.05">3 Months (5% off)</option>
+              <option value="6" data-discount="0.10">6 Months (10% off)</option>
+              <option value="12" data-discount="0.18">12 Months (18% off)</option>
+            </select>
+            <span class="duration-hint" id="durationHint"></span>
+          </div>
+          <div class="field">
+            <label for="itemQuantity">Quantity</label>
+            <input type="number" id="itemQuantity" min="1" max="10" value="1">
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" id="calculateBtn"
+          style="width:100%; margin-top:6px; text-align: center; justify-content: center;">Calculate Estimate</button>
+
+      </form>
+
+      <div class="estimator-output">
+        <h4>Your Estimate</h4>
+        <div class="estimate-main">
+          <div class="big-amount" id="outMonthly">₹0</div>
+          <div class="big-label">Estimated Monthly Rent</div>
+        </div>
+        <div class="estimate-line"><span>Rental Duration</span><strong id="outDuration">—</strong></div>
+        <div class="estimate-line"><span>Quantity</span><strong id="outQty">—</strong></div>
+        <div class="estimate-line"><span>Total for Duration</span><strong id="outTotal">₹0</strong></div>
+        <span class="save-badge" id="outSaveBadge" style="display:none;"></span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var furnitureSelect = document.getElementById('furnitureType');
+      var materialSelect = document.getElementById('materialType');
+      var durationSelect = document.getElementById('rentalDuration');
+      var qtyInput = document.getElementById('itemQuantity');
+      var calculateBtn = document.getElementById('calculateBtn');
+      var durationHint = document.getElementById('durationHint');
+
+      var outMonthly = document.getElementById('outMonthly');
+      var outDuration = document.getElementById('outDuration');
+      var outQty = document.getElementById('outQty');
+      var outTotal = document.getElementById('outTotal');
+      var outSaveBadge = document.getElementById('outSaveBadge');
+
+      function formatINR(num) {
+        return "₹" + Math.round(num).toLocaleString('en-IN');
+      }
+
+      function updateDurationHint() {
+        var opt = durationSelect.options[durationSelect.selectedIndex];
+        var discount = parseFloat(opt.getAttribute('data-discount'));
+        if (discount > 0) {
+          durationHint.textContent = "Locks in " + Math.round(discount * 100) + "% off";
+          durationHint.classList.add('visible');
+        } else {
+          durationHint.classList.remove('visible');
+        }
+      }
+
+      function calculateEstimate() {
+        var furnitureOpt = furnitureSelect.options[furnitureSelect.selectedIndex];
+        var materialOpt = materialSelect.options[materialSelect.selectedIndex];
+        var durationOpt = durationSelect.options[durationSelect.selectedIndex];
+
+        var base = parseFloat(furnitureOpt.getAttribute('data-base'));
+        var mult = parseFloat(materialOpt.getAttribute('data-mult'));
+        var discount = parseFloat(durationOpt.getAttribute('data-discount'));
+        var months = parseInt(durationOpt.value, 10);
+        var qty = Math.min(Math.max(parseInt(qtyInput.value, 10) || 1, 1), 10);
+        qtyInput.value = qty;
+
+        var perItemMonthly = base * mult;
+        var fullMonthlyTotal = perItemMonthly * qty;
+        var discountedMonthly = fullMonthlyTotal * (1 - discount);
+        var totalForDuration = discountedMonthly * months;
+        var totalSavings = (fullMonthlyTotal - discountedMonthly) * months;
+
+        outMonthly.classList.add('updating');
+
+        setTimeout(function () {
+          outMonthly.textContent = formatINR(discountedMonthly);
+          outDuration.textContent = durationOpt.textContent.replace(/\s*\(.*\)/, '');
+          outQty.textContent = qty;
+          outTotal.textContent = formatINR(totalForDuration);
+
+          if (totalSavings > 0) {
+            outSaveBadge.textContent = "You save " + formatINR(totalSavings) + " on this plan";
+            outSaveBadge.style.display = 'inline-flex';
+            outSaveBadge.classList.add('visible');
+          } else {
+            outSaveBadge.classList.remove('visible');
+            outSaveBadge.style.display = 'none';
+          }
+
+          outMonthly.classList.remove('updating');
+        }, 160);
+      }
+
+      durationSelect.addEventListener('change', updateDurationHint);
+      calculateBtn.addEventListener('click', calculateEstimate);
+      updateDurationHint();
+    })();
+  </script>
+
+
+  <section class="section deposit-info" style="background:var(--sbg1)">
+    <div class="section-heading">
+      <span class="eyebrow">Know Before You Rent</span>
+      <h2>Security Deposit <span class="accent">Information</span></h2>
+      <div class="divider"></div>
+      <p>A refundable deposit protects your furniture — here's exactly how much, how refunds work, and how to rent with
+        less upfront.</p>
+    </div>
+
+    <div class="deposit-wrap">
+
+
+      <div class="deposit-cards">
+        <div class="deposit-card">
+          <div class="deposit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="6" width="20" height="12" rx="2" />
+              <path d="M2 10h20" />
+              <path d="M6 15h4" />
+            </svg>
+          </div>
+          <h3>Deposit Amount</h3>
+          <p>Deposits are calculated as a one-time, fully refundable amount based on your plan and furniture value — not
+            a monthly charge.</p>
+          <p>Ranges from <strong>₹2,000</strong> on Essential to <strong>₹7,500</strong> on Premium, paid once at
+            checkout.</p>
+          <div class="card-note">Held securely, never mixed with rental fees</div>
+        </div>
+
+        <div class="deposit-card">
+          <div class="deposit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9" />
+              <path d="M3 4v5h5" />
+              <path d="M12 8v4l3 2" />
+            </svg>
+          </div>
+          <h3>Refund Policy</h3>
+          <p>Your full deposit is refunded once the furniture is picked up and inspected, minus any documented damage
+            beyond normal wear.</p>
+          <p>Refunds are processed to your original payment method within <strong>7–10 business days</strong> of pickup.
+          </p>
+          <div class="card-note">No deductions for minor everyday wear</div>
+        </div>
+
+        <div class="deposit-card">
+          <div class="deposit-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 6L9 17l-5-5" />
+            </svg>
+          </div>
+          <h3>No-Deposit Options</h3>
+          <p>Prefer zero upfront deposit? Opt into Deposit-Free Protection for a small monthly add-on instead of a lump
+            sum.</p>
+          <p>Available on Comfort and Premium plans from <strong>₹149/month</strong>.</p>
+          <div class="card-note">Ideal for short stays &amp; students</div>
+        </div>
+      </div>
+
+
+      <div class="deposit-table-block">
+        <h3>Deposit Amount by Plan</h3>
+        <table class="deposit-table">
+          <thead>
+            <tr>
+              <th>Plan</th>
+              <th>Refundable Deposit</th>
+              <th>Deposit-Free Add-on</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="plan-col">Essential</td>
+              <td class="amount-col">₹2,000</td>
+              <td>Not available</td>
+            </tr>
+            <tr>
+              <td class="plan-col">Comfort</td>
+              <td class="amount-col">₹4,000</td>
+              <td>₹149 / month</td>
+            </tr>
+            <tr>
+              <td class="plan-col">Premium</td>
+              <td class="amount-col">₹7,500</td>
+              <td>₹249 / month</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="deposit-table-note">Deposit amounts scale with furniture count and value at checkout — figures above
+          reflect typical baseline plan usage.</div>
+      </div>
+
+
+      <div class="refund-timeline">
+        <div class="refund-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Request Pickup</h4>
+            <p>Schedule furniture pickup from your account once your rental ends.</p>
+          </div>
+        </div>
+        <div class="refund-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Quick Inspection</h4>
+            <p>Our team inspects items on pickup day for damage beyond normal wear.</p>
+          </div>
+        </div>
+        <div class="refund-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Deposit Cleared</h4>
+            <p>Any deductions, if applicable, are itemized and shared with you clearly.</p>
+          </div>
+        </div>
+        <div class="refund-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Refund Issued</h4>
+            <p>Balance is refunded to your original payment method in 7–10 business days.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="no-deposit-banner">
+        <div class="banner-text">
+
+          <h3>Skip the deposit entirely</h3>
+          <p>Add Deposit-Free Protection at checkout and rent without paying a lump sum — just a small monthly fee added
+            to your plan.</p>
+        </div>
+        <a href="#plans" class="btn-primary">Explore Deposit-Free Plans</a>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <script src="../js/navbar.js"></script>
+  <div id="site-footer"></div>
+  <script src="../js/footer.js"></script>
+</body>
+
+</html>

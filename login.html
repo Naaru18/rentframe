@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Frame Login page</title>
+  <link rel="icon" type="image/png" href="../Images/logo.png">
+
+
+
+  <link rel="stylesheet" href="../global.css">
+
+  <link rel="stylesheet" href="../login.css">
+</head>
+
+<body>
+
+  <div class="floating-controls">
+    <button class="ctrl-btn" id="modeToggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2">
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+      </svg>
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+    </button>
+    <button class="ctrl-btn" id="rtlToggle" aria-label="Toggle RTL layout" title="Toggle RTL / LTR">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M17 3l4 4-4 4M21 7H9M7 21l-4-4 4-4M3 17h12" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="auth-page">
+
+
+    <div class="auth-visual">
+      <span class="auth-blob auth-blob-1"></span>
+      <span class="auth-blob auth-blob-2"></span>
+      <span class="auth-blob auth-blob-3"></span>
+
+      <div class="auth-visual-inner">
+        <div class="visual-icon-ring">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 9.5L12 3l9 6.5" />
+            <path d="M5 10v10h14V10" />
+            <path d="M9 20v-6h6v6" />
+          </svg>
+        </div>
+
+        <h2 class="typewriter-heading" id="typewriterHeading"><span class="cursor"></span></h2>
+
+        <p class="static-sub">Join thousands furnishing smarter — flexible plans, free delivery, and pieces that feel
+          like home.</p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13" />
+                <path d="M16 8h4l3 3v5h-7V8z" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg>
+            </span>
+            <span class="feature-text"><strong>Free Doorstep Delivery</strong><span>Assembled and set up for
+                you</span></span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" />
+              </svg>
+            </span>
+            <span class="feature-text"><strong>Damage Protection</strong><span>Covered on every rental
+                plan</span></span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 1l4 4-4 4M21 5H9a4 4 0 00-4 4v1M7 23l-4-4 4-4M3 19h12a4 4 0 004-4v-1" />
+              </svg>
+            </span>
+            <span class="feature-text"><strong>Swap Anytime</strong><span>One free swap every 6 months</span></span>
+          </div>
+        </div>
+
+        <div class="auth-visual-dots"><span class="active"></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    <div class="auth-form-panel">
+      <div class="auth-card reveal">
+
+
+
+
+        <div class="auth-card-body">
+          <a href="index.html" class="navbar-logo">
+            <span class="navbar-logo-icon-wrap">
+              <img src="../Images/logo.png" alt="RentFrame logo" class="navbar-logo-icon"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <span class="navbar-logo-icon-fallback" style="display:none;">R</span>
+            </span>
+            <span class="navbar-logo-text">Rent<span>Frame</span></span>
+          </a>
+          <h1>Welcome Back</h1>
+          <p class="auth-sub">Log in to continue browsing and managing your furniture rentals.</p>
+
+          <div class="social-login-group">
+            <button type="button" class="social-btn" id="googleLogin" aria-label="Continue with Google">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M21.35 11.1H12v2.9h5.35c-.5 2.6-2.7 4.4-5.35 4.4a5.9 5.9 0 110-11.8c1.5 0 2.85.55 3.9 1.45l2.2-2.2A9.3 9.3 0 0012 3a9.4 9.4 0 100 18.8c5.4 0 9-3.8 9-9.15 0-.6-.07-1.05-.15-1.55z" />
+              </svg>
+              <span>Google</span>
+            </button>
+
+            <button type="button" class="social-btn" id="appleLogin" aria-label="Continue with Apple">
+              <svg width="14" height="16" viewBox="0 0 16 18" fill="currentColor">
+                <path
+                  d="M13.15 9.53c-.02-2.05 1.67-3.04 1.75-3.09-.96-1.4-2.44-1.59-2.97-1.61-1.26-.13-2.47.74-3.11.74-.65 0-1.63-.72-2.68-.7-1.38.02-2.65.8-3.36 2.03-1.43 2.48-.37 6.16 1.03 8.18.68.98 1.5 2.09 2.57 2.05 1.03-.04 1.42-.67 2.67-.67 1.24 0 1.6.67 2.68.65 1.11-.02 1.81-1.01 2.49-1.99.78-1.14 1.1-2.24 1.12-2.3-.02-.01-2.14-.82-2.16-3.29z" />
+                <path
+                  d="M11.15 3.24c.57-.7.96-1.65.85-2.61-.83.03-1.83.55-2.42 1.24-.53.61-.99 1.6-.86 2.53.91.07 1.85-.46 2.43-1.16z" />
+              </svg>
+              <span>Apple</span>
+            </button>
+
+            <button type="button" class="social-btn" id="facebookLogin" aria-label="Continue with Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg>
+              <span>Facebook</span>
+            </button>
+          </div>
+
+          <div class="divider-text">or continue with email</div>
+
+          <form class="auth-form" id="loginForm" novalidate>
+            <div class="field">
+              <label for="loginEmail">Email Address</label>
+              <input type="email" id="loginEmail" name="loginEmail" placeholder="you@example.com" required>
+              <span class="error-msg">Please enter a valid email</span>
+            </div>
+
+            <div class="field">
+              <label for="loginPassword">Password</label>
+              <div class="password-field">
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password"
+                  required>
+                <button type="button" class="toggle-password" data-target="loginPassword" aria-label="Show password">
+                  <svg class="icon-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  <svg class="icon-eye-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path
+                      d="M17.94 17.94A10.94 10.94 0 0112 20c-7 0-11-8-11-8a20.3 20.3 0 015.06-6.06M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a20.4 20.4 0 01-3.22 4.44M14.12 14.12a3 3 0 11-4.24-4.24" />
+                    <line x1="1" y1="1" x2="23" y2="23" />
+                  </svg>
+                </button>
+              </div>
+              <span class="error-msg">Please enter your password</span>
+            </div>
+
+            <div class="form-utility-row">
+              <label class="remember-me">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <span>Remember me</span>
+              </label>
+              <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn-primary auth-submit-btn">
+              <span class="btn-text">Log In</span>
+            </button>
+
+            <p class="form-note" id="loginNote">Logged in successfully — redirecting to your dashboard...</p>
+          </form>
+
+          <p class="auth-switch">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const modeToggle = document.getElementById('modeToggle');
+      modeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('rentframe-mode', document.body.classList.contains('dark') ? 'dark' : 'light');
+      });
+
+
+      const rtlToggle = document.getElementById('rtlToggle');
+      rtlToggle.addEventListener('click', () => {
+        const isRTL = document.body.getAttribute('dir') === 'rtl';
+        document.body.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
+        localStorage.setItem('rentframe-dir', isRTL ? 'ltr' : 'rtl');
+      });
+
+      const revealEls = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      revealEls.forEach(el => revealObserver.observe(el));
+
+
+      const phrases = [
+        'Furnish Your Space, <span class="accent">Not Your Budget</span>',
+        'Premium Furniture, <span class="accent">Zero Commitment</span>',
+        'Move In Today, <span class="accent">Rent The Rest</span>'
+      ];
+      const headingEl = document.getElementById('typewriterHeading');
+      const cursor = headingEl.querySelector('.cursor');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let phraseIndex = 0;
+
+      function typeLetters(html, callback) {
+
+        const tokens = html.match(/<[^>]+>|[^<]/g) || [];
+        let i = 0;
+        let built = '';
+        let insideTag = false;
+
+        function step() {
+          if (i >= tokens.length) { callback(); return; }
+          const tok = tokens[i];
+          built += tok;
+          headingEl.innerHTML = built;
+          headingEl.appendChild(cursor);
+          i++;
+          const delay = tok.startsWith('<') ? 0 : 34;
+          setTimeout(step, delay);
+        }
+        step();
+      }
+
+      function eraseText(callback) {
+        let content = headingEl.textContent;
+        function step() {
+          if (content.length === 0) { callback(); return; }
+          content = content.slice(0, -1);
+          headingEl.textContent = content;
+          headingEl.appendChild(cursor);
+          setTimeout(step, 16);
+        }
+        step();
+      }
+
+      function runTypewriter() {
+        typeLetters(phrases[phraseIndex], () => {
+          setTimeout(() => {
+            eraseText(() => {
+              phraseIndex = (phraseIndex + 1) % phrases.length;
+              setTimeout(runTypewriter, 300);
+            });
+          }, 2200);
+        });
+      }
+
+      if (reduceMotion) {
+        headingEl.innerHTML = phrases[0];
+      } else {
+        runTypewriter();
+      }
+
+
+      document.querySelectorAll('.toggle-password').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = document.getElementById(btn.dataset.target);
+          const showing = target.type === 'text';
+          target.type = showing ? 'password' : 'text';
+          btn.classList.toggle('showing', !showing);
+          btn.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+        });
+      });
+
+
+      const form = document.getElementById('loginForm');
+      const note = document.getElementById('loginNote');
+
+      const validators = {
+        loginEmail: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+        loginPassword: v => v.trim().length >= 6
+      };
+
+      function validateField(input) {
+        const rule = validators[input.name];
+        if (!rule) return true;
+        const field = input.closest('.field');
+        const valid = rule(input.value);
+        field.classList.toggle('invalid', !valid);
+        return valid;
+      }
+
+      form.querySelectorAll('input[name]').forEach(input => {
+        input.addEventListener('blur', () => validateField(input));
+        input.addEventListener('input', () => {
+          if (input.closest('.field').classList.contains('invalid')) validateField(input);
+        });
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        note.classList.remove('show');
+
+        const inputs = Array.from(form.querySelectorAll('input[name]'));
+        const allValid = inputs.map(validateField).every(Boolean);
+        if (!allValid) {
+          const firstInvalid = form.querySelector('.field.invalid input');
+          if (firstInvalid) firstInvalid.focus();
+          return;
+        }
+
+        const submitBtn = form.querySelector('.auth-submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const originalText = btnText.textContent;
+        submitBtn.disabled = true;
+        btnText.textContent = 'Logging in...';
+
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          btnText.textContent = originalText;
+          note.classList.add('show');
+        }, 900);
+      });
+
+
+      ['googleLogin', 'appleLogin', 'facebookLogin'].forEach(id => {
+        document.getElementById(id).addEventListener('click', () => {
+          console.log(id + ' clicked — hook up your OAuth flow here.');
+        });
+      });
+
+    });
+
+  </script>
+
+  <script src="../js/navbar.js"></script>
+</body>
+
+</html>

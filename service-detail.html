@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="../global.css">
+
+  <link rel="stylesheet" href="../service-detail.css">
+</head>
+
+<body>
+  <div id="site-navbar"></div>
+
+
+  <section class="detail-hero">
+    <div class="breadcrumb">
+    </div>
+    <div class="detail-hero-grid">
+      <div>
+        <div class="rating">
+          <span class="stars" id="ratingStars"></span>
+          <span class="count">4.9 (312 rentals)</span>
+        </div>
+        <h1>Living Room <span class="accent">Sofa & Lounge Set</span></h1>
+        <p class="desc">A complete living room package — 3-seater sofa, coffee table and accent chair — delivered,
+          assembled and protected for as long as you need it.</p>
+        <div class="hero-cta">
+          <a href="#plans-detail" class="btn-primary">Rent This Set</a>
+          <a href="services.html" class="btn-outline">Back to Services</a>
+        </div>
+      </div>
+      <div class="detail-hero-img">
+        <img src="../Images/hero-bg.jpg" alt="Living room sofa set">
+        <div class="price-tag">
+          <div class="amount">₹2,499</div>
+          <div class="period">per month</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="detail-grid">
+      <div class="detail-desc reveal">
+        <h2>About This Set</h2>
+        <p>This living room package is built for renters who want a fully furnished space without buying outright. Every
+          piece is inspected between rentals and re-conditioned to look and feel new.</p>
+        <p>The 3-seater sofa uses a solid pine frame with high-density foam cushioning, paired with a tempered-glass
+          coffee table and a matching accent chair — enough to furnish a standard living room in one delivery.</p>
+        <ul>
+          <li>Solid pine frame construction</li>
+          <li>High-density foam cushions</li>
+          <li>Stain-resistant upholstery</li>
+          <li>Tempered-glass coffee table</li>
+          <li>Free assembly included</li>
+          <li>Swap or upgrade anytime</li>
+        </ul>
+      </div>
+
+      <div class="specs-card reveal reveal-delay-1">
+        <h3>Set Specifications</h3>
+        <dl>
+          <div class="specs-row">
+            <dt>Sofa dimensions</dt>
+            <dd>190 × 85 × 80 cm</dd>
+          </div>
+          <div class="specs-row">
+            <dt>Coffee table</dt>
+            <dd>110 × 55 × 40 cm</dd>
+          </div>
+          <div class="specs-row">
+            <dt>Accent chair</dt>
+            <dd>70 × 75 × 85 cm</dd>
+          </div>
+          <div class="specs-row">
+            <dt>Material</dt>
+            <dd>Pine wood, fabric</dd>
+          </div>
+          <div class="specs-row">
+            <dt>Delivery window</dt>
+            <dd>48 hours</dd>
+          </div>
+          <div class="specs-row">
+            <dt>Minimum tenure</dt>
+            <dd>3 months</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+
+      function initRating() {
+        var el = document.getElementById('ratingStars');
+        if (!el) return;
+        var value = 4.9;
+        var full = Math.floor(value);
+        var hasHalf = value - full >= 0.5;
+        var stars = '★'.repeat(full) + (hasHalf ? '½' : '') + '☆'.repeat(5 - full - (hasHalf ? 1 : 0));
+        el.textContent = stars;
+      }
+
+
+      function initReveal() {
+        var items = document.querySelectorAll('.reveal');
+        if (!("IntersectionObserver" in window)) {
+          items.forEach(function (el) { el.classList.add('is-visible'); });
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        items.forEach(function (el) { io.observe(el); });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        initRating();
+        initReveal();
+      });
+    })();
+  </script>
+
+
+
+  <section class="section bg-2">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Gallery</span>
+      <h2>See It <span class="accent">In A Home</span></h2>
+      <div class="divider"></div>
+      <p>Click any image to view it up close.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item reveal" tabindex="0" role="button" aria-label="View larger image: Living room with sofa set">
+        <img src="../Images/gal7.png" alt="Living room with sofa set">
+      </div>
+      <div class="g-item reveal reveal-delay-1" tabindex="0" role="button"
+        aria-label="View larger image: Close up of sofa fabric">
+        <img src="../Images/service7.png" alt="Close up of sofa fabric">
+      </div>
+      <div class="g-item reveal reveal-delay-2" tabindex="0" role="button"
+        aria-label="View larger image: Coffee table detail">
+        <img src="../Images/gal3.jpg" alt="Coffee table detail">
+      </div>
+      <div class="g-item reveal reveal-delay-3" tabindex="0" role="button"
+        aria-label="View larger image: Accent chair in living room">
+        <img src="../Images/gal4.jpg" alt="Accent chair in living room">
+      </div>
+      <div class="g-item reveal reveal-delay-4" tabindex="0" role="button"
+        aria-label="View larger image: Styled living room corner">
+        <img src="../Images/gal5.jpg" alt="Styled living room corner">
+      </div>
+    </div>
+  </section>
+
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox-figure">
+      <span class="lightbox-counter" id="lightboxCounter"></span>
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close viewer">&#10005;</button>
+      <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#10094;</button>
+      <img id="lightboxImg" src="" alt="">
+      <button class="lightbox-next" id="lightboxNext" aria-label="Next image">&#10095;</button>
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+
+      var items = Array.prototype.slice.call(document.querySelectorAll('.gallery-grid .g-item'));
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var lightboxCaption = document.getElementById('lightboxCaption');
+      var lightboxCounter = document.getElementById('lightboxCounter');
+      var closeBtn = document.getElementById('lightboxClose');
+      var prevBtn = document.getElementById('lightboxPrev');
+      var nextBtn = document.getElementById('lightboxNext');
+
+      var currentIndex = 0;
+      var lastFocusedEl = null;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        lastFocusedEl = document.activeElement;
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+        document.addEventListener('keydown', onKeydown);
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onKeydown);
+        if (lastFocusedEl) lastFocusedEl.focus();
+      }
+
+      function updateLightbox() {
+        var img = items[currentIndex].querySelector('img');
+        lightboxImg.src = img.src.replace(/w=\d+/, 'w=1400');
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = img.alt;
+        lightboxCounter.textContent = (currentIndex + 1) + ' / ' + items.length;
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateLightbox();
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateLightbox();
+      }
+
+      function onKeydown(e) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      }
+
+      items.forEach(function (item, index) {
+        item.addEventListener('click', function () { openLightbox(index); });
+        item.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightbox(index);
+          }
+        });
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      nextBtn.addEventListener('click', showNext);
+      prevBtn.addEventListener('click', showPrev);
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+    })();
+  </script>
+
+  <section class="section bg-1" id="plans-detail">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Choose Duration</span>
+      <h2>Rental <span class="accent">Terms</span></h2>
+      <div class="divider"></div>
+      <p>Longer terms unlock lower monthly rates.</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card reveal">
+        <h3>3 Months</h3>
+        <div class="price-line">
+          <span class="amount">₹2,799</span>
+          <span class="period">/ month</span>
+        </div>
+        <ul>
+          <li>Free delivery & setup</li>
+          <li>Basic damage protection</li>
+          <li>No free swaps</li>
+        </ul>
+        <a href="pricing.html" class="btn-outline">Select Term</a>
+      </div>
+      <div class="plan-card featured reveal reveal-delay-1">
+        <h3>6 Months</h3>
+        <div class="price-line">
+          <span class="amount">₹2,499</span>
+          <span class="period">/ month</span>
+        </div>
+        <ul>
+          <li>Free delivery & setup</li>
+          <li>Full damage protection</li>
+          <li>1 free swap included</li>
+        </ul>
+        <a href="pricing.html" class="btn-primary">Select Term</a>
+      </div>
+      <div class="plan-card reveal reveal-delay-2">
+        <h3>12 Months</h3>
+        <div class="price-line">
+          <span class="amount">₹2,199</span>
+          <span class="period">/ month</span>
+        </div>
+        <ul>
+          <li>Free priority delivery</li>
+          <li>Premium damage protection</li>
+          <li>3 free swaps included</li>
+        </ul>
+        <a href="pricing.html" class="btn-outline">Select Term</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-2">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Details</span>
+      <h2>Everything You <span class="accent">Get</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="tabs-nav reveal">
+      <button class="tab-btn active" data-tab="tab-pieces">Pieces</button>
+      <button class="tab-btn" data-tab="tab-services">Services</button>
+      <button class="tab-btn" data-tab="tab-protection">Protection</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-pieces">
+      <div class="included-item reveal">
+        <div class="item-img">
+          <img src="../Images/eve1.jpg" alt="3-Seater Sofa">
+        </div>
+        <div class="item-body">
+          <h5>3-Seater Sofa</h5>
+          <p>Stain-resistant fabric with high-density foam cushioning.</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="item-img">
+          <img src="../Images/eve2.jpg" alt="Coffee Table">
+        </div>
+        <div class="item-body">
+          <h5>Coffee Table</h5>
+          <p>Solid wood table with a durable matte finish.</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="item-img">
+          <img src="../Images/eve3.jpg" alt="Accent Chair">
+        </div>
+        <div class="item-body">
+          <h5>Accent Chair</h5>
+          <p>Matching single-seat chair for extra seating.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-services">
+      <div class="included-item reveal">
+        <div class="item-img">
+          <img src="../Images/eve4.jpg" alt="Delivery and Setup">
+        </div>
+        <div class="item-body">
+          <h5>Delivery & Setup</h5>
+          <p>Doorstep delivery with full assembly by our team.</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="item-img">
+          <img src="../Images/eve5.avif" alt="Deep Cleaning">
+        </div>
+        <div class="item-body">
+          <h5>Deep Cleaning</h5>
+          <p>Professional cleaning at the end of every rental term.</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="item-img">
+          <img src="../Images/eve6.avif" alt="Priority Support">
+        </div>
+        <div class="item-body">
+          <h5>Priority Support</h5>
+          <p>Dedicated helpline for repairs, swaps or questions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-protection">
+      <div class="included-item reveal">
+        <div class="item-img">
+          <img src="../Images/eve7.avif" alt="Accidental Damage Cover">
+        </div>
+        <div class="item-body">
+          <h5>Accidental Damage Cover</h5>
+          <p>Spills, scuffs and tears repaired at no extra charge.</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="item-img">
+          <img src="../Images/eve8.avif" alt="Free Replacement">
+        </div>
+        <div class="item-body">
+          <h5>Free Replacement</h5>
+          <p>Faulty pieces replaced within 48 hours.</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="item-img">
+          <img src="../Images/eve9.avif" alt="Flexible Cancellation">
+        </div>
+        <div class="item-body">
+          <h5>Flexible Cancellation</h5>
+          <p>Cancel after the minimum term with 15 days notice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          tabBtns.forEach(function (b) { b.classList.remove('active'); });
+          tabPanels.forEach(function (p) { p.classList.remove('active'); });
+
+          btn.classList.add('active');
+          var target = document.getElementById(btn.getAttribute('data-tab'));
+          target.classList.add('active');
+
+          target.querySelectorAll('.reveal').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+        });
+      });
+
+
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+    })();
+  </script>
+
+
+  <section class="section bg-1">
+    <div class="related-head-row reveal">
+      <div class="section-heading">
+        <span class="eyebrow">You May Also Like</span>
+        <h2>Related <span class="accent">Rentals</span></h2>
+        <div class="divider"></div>
+        <p>Pair your current rental with these popular picks.</p>
+      </div>
+      <div class="related-controls">
+        <button class="related-arrow" id="relatedPrev" aria-label="Previous">&#10094;</button>
+        <button class="related-arrow" id="relatedNext" aria-label="Next">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="related-track-wrap">
+      <div class="related-track" id="relatedTrack">
+        <a href="service-details.html" class="related-card reveal">
+          <span class="badge">Popular</span>
+          <button class="wishlist" aria-label="Add to wishlist" data-wishlist>&#9825;</button>
+          <div class="img-wrap">
+            <img src="../Images/service2.jpg" alt="Bedroom set">
+          </div>
+
+          <div class="content">
+            <div class="rating"><span class="stars">★★★★★</span><span class="count">(128)</span></div>
+            <h4>Bed & Wardrobe Set</h4>
+            <div class="meta-row">
+              <span class="price">₹3,199 <small>/ month</small></span>
+              <span class="view-link">View &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="service-details.html" class="related-card reveal reveal-delay-1">
+          <span class="badge">New</span>
+          <button class="wishlist" aria-label="Add to wishlist" data-wishlist>&#9825;</button>
+          <div class="img-wrap">
+            <img src="../Images/service3.jpg" alt="Dining set">
+          </div>
+
+          <div class="content">
+            <div class="rating"><span class="stars">★★★★☆</span><span class="count">(94)</span></div>
+            <h4>Dining Table Set</h4>
+            <div class="meta-row">
+              <span class="price">₹2,899 <small>/ month</small></span>
+              <span class="view-link">View &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="service-details.html" class="related-card reveal reveal-delay-2">
+          <span class="badge">Best Value</span>
+          <button class="wishlist" aria-label="Add to wishlist" data-wishlist>&#9825;</button>
+          <div class="img-wrap">
+            <img src="../Images/service4.jpg" alt="Office desk and chair">
+          </div>
+
+          <div class="content">
+            <div class="rating"><span class="stars">★★★★★</span><span class="count">(211)</span></div>
+            <h4>Office Desk & Chair</h4>
+            <div class="meta-row">
+              <span class="price">₹1,499 <small>/ month</small></span>
+              <span class="view-link">View &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="service-details.html" class="related-card reveal">
+          <span class="badge">Popular</span>
+          <button class="wishlist" aria-label="Add to wishlist" data-wishlist>&#9825;</button>
+          <div class="img-wrap">
+            <img src="../Images/eve1.jpg" alt="Living room sofa">
+          </div>
+
+          <div class="content">
+            <div class="rating"><span class="stars">★★★★★</span><span class="count">(163)</span></div>
+            <h4>3-Seater Sofa</h4>
+            <div class="meta-row">
+              <span class="price">₹2,599 <small>/ month</small></span>
+              <span class="view-link">View &rarr;</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="related-dots" id="relatedDots"></div>
+  </section>
+
+  <script>
+    (function () {
+
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+
+      document.querySelectorAll('[data-wishlist]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          btn.classList.toggle('active');
+          btn.innerHTML = btn.classList.contains('active') ? '&#9829;' : '&#9825;';
+        });
+      });
+
+
+      var track = document.getElementById('relatedTrack');
+      var cards = Array.prototype.slice.call(track.children);
+      var prevBtn = document.getElementById('relatedPrev');
+      var nextBtn = document.getElementById('relatedNext');
+      var dotsWrap = document.getElementById('relatedDots');
+
+      function getPerView() {
+        var w = window.innerWidth;
+        if (w <= 768) return 1;
+        if (w <= 1024) return 2;
+        return 3;
+      }
+
+      var index = 0;
+
+      function maxIndex() {
+        return Math.max(0, cards.length - getPerView());
+      }
+
+      function update() {
+        var perView = getPerView();
+        var gap = 26;
+        var cardWidth = cards[0].getBoundingClientRect().width;
+        var offset = index * (cardWidth + gap);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index >= maxIndex();
+
+        dotsWrap.innerHTML = '';
+        var dotCount = maxIndex() + 1;
+        for (var i = 0; i < dotCount; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'dot' + (i === index ? ' active' : '');
+          dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          (function (i) {
+            dot.addEventListener('click', function () { index = i; update(); });
+          })(i);
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      prevBtn.addEventListener('click', function () {
+        index = Math.max(0, index - 1);
+        update();
+      });
+      nextBtn.addEventListener('click', function () {
+        index = Math.min(maxIndex(), index + 1);
+        update();
+      });
+
+      window.addEventListener('resize', function () {
+        index = Math.min(index, maxIndex());
+        update();
+      });
+
+      update();
+    })();
+  </script>
+
+
+  <section class="section bg-1">
+    <div class="section-heading reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common <span class="accent">Questions</span></h2>
+      <div class="divider"></div>
+      <p>Everything you need to know before you rent.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item open reveal">
+        <button class="faq-question" aria-expanded="true">
+          <span>How does the rental process work?</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Pick your pieces, choose a plan length, and schedule a delivery slot. Our team assembles everything
+            on-site, and your rental term starts the day of delivery.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-question" aria-expanded="false">
+          <span>Can I extend or end my rental early?</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. You can extend month-to-month at any time, or cancel after the minimum term with 15 days notice. There
+            are no long-term lock-ins beyond the initial period.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-question" aria-expanded="false">
+          <span>What happens if a piece gets damaged?</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Every plan includes accidental damage cover for everyday spills, scuffs, and tears, repaired at no extra
+            charge. Faulty pieces are replaced within 48 hours.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-3">
+        <button class="faq-question" aria-expanded="false">
+          <span>Do you deliver and assemble the furniture?</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, delivery and full assembly are included with every order. Our team handles setup so your furniture is
+            ready to use the same day.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-4">
+        <button class="faq-question" aria-expanded="false">
+          <span>Is a security deposit required?</span>
+          <span class="plus">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>A refundable deposit applies to select plans and is returned in full at the end of your term, provided the
+            furniture is in normal condition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+
+      var faqItems = document.querySelectorAll('.faq-item');
+
+      function setAnswerHeight(item, open) {
+        var answer = item.querySelector('.faq-answer');
+        if (open) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = '0px';
+        }
+      }
+
+      faqItems.forEach(function (item) {
+        var question = item.querySelector('.faq-question');
+
+
+        setAnswerHeight(item, item.classList.contains('open'));
+
+        question.addEventListener('click', function () {
+          var isOpen = item.classList.contains('open');
+
+
+          faqItems.forEach(function (other) {
+            if (other !== item) {
+              other.classList.remove('open');
+              other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+              setAnswerHeight(other, false);
+            }
+          });
+
+
+          if (isOpen) {
+            item.classList.remove('open');
+            question.setAttribute('aria-expanded', 'false');
+            setAnswerHeight(item, false);
+          } else {
+            item.classList.add('open');
+            question.setAttribute('aria-expanded', 'true');
+            setAnswerHeight(item, true);
+          }
+        });
+
+        question.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            question.click();
+          }
+        });
+      });
+
+
+      window.addEventListener('resize', function () {
+        faqItems.forEach(function (item) {
+          if (item.classList.contains('open')) {
+            setAnswerHeight(item, true);
+          }
+        });
+      });
+    })();
+  </script>
+
+
+  <section class="section bg-2">
+    <div class="cta-banner reveal">
+      <span class="eyebrow">Limited Time</span>
+      <h2>Furnish This Room Today</h2>
+      <p>Get it delivered within 48 hours with zero setup hassle.</p>
+      <div class="hero-cta btns">
+        <a href="#plans-detail" class="btn-primary">Rent Now</a>
+        <a href="services.html" class="btn-outline">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+    })();
+  </script>
+
+
+
+
+  <script src="../js/navbar.js"></script>
+  <div id="site-footer"></div>
+  <script src="../js/footer.js"></script>
+</body>
+
+</html>
