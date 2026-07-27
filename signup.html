@@ -107,7 +107,7 @@
           </a>
 
           <h1>Create Account</h1>
-          <p class="auth-sub">Sign up to start browsing and renting premium furniture for your space.</p>
+
 
           <div class="social-login-group">
             <button type="button" class="social-btn" id="googleSignup" aria-label="Sign up with Google">
@@ -147,12 +147,7 @@
               <span class="error-msg">Please enter your first name</span>
             </div>
 
-            <div class="field">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required
-                autocomplete="family-name">
-              <span class="error-msg">Please enter your last name</span>
-            </div>
+
 
             <div class="field">
               <label for="signupEmail">Email Address</label>
@@ -231,6 +226,12 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
+
+      const modeToggle = document.getElementById('modeToggle');
+      modeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('rentframe-mode', document.body.classList.contains('dark') ? 'dark' : 'light');
+      });
 
 
       const rtlToggle = document.getElementById('rtlToggle');
@@ -401,8 +402,6 @@
 
     });
   </script>
-
-  <script src="../js/navbar.js"></script>
 </body>
 
 </html>

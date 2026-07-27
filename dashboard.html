@@ -8,7 +8,6 @@
   <link rel="icon" type="image/png" href="../Images/logo.png">
 
 
-
   <link rel="stylesheet" href="../dashboard.css">
 </head>
 
@@ -956,7 +955,17 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
+      // Dark / Light mode toggle
+      const modeToggle = document.getElementById('modeToggle');
 
+      if (localStorage.getItem('rentframe-theme') === 'dark') {
+        document.body.classList.add('dark');
+      }
+
+      modeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark');
+        localStorage.setItem('rentframe-theme', isDark ? 'dark' : 'light');
+      });
 
 
 
