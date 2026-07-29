@@ -33,10 +33,7 @@
       <p class="hero-sub reveal reveal-delay-2">No lock-in contracts, no hidden fees. Pick a plan, choose your pieces,
         and pay monthly for as long as you need them.</p>
 
-      <div class="hero-cta-row reveal reveal-delay-3">
-        <a href="#plans" class="btn-primary">View Plans</a>
-        <a href="#contact" class="btn-outline">Talk to Us</a>
-      </div>
+     
 
       <div class="hero-stats-row reveal reveal-delay-4">
         <div class="hero-stat"><strong data-count="10000" data-suffix="+">0</strong><span>Happy Renters</span></div>
@@ -46,7 +43,7 @@
       </div>
     </div>
 
-    <div class="scroll-cue reveal reveal-delay-4"></div>
+
   </section>
 
   <script>
@@ -123,9 +120,7 @@
   </script>
 
 
-
-
-  <section class="section pricing-plans" style="background:var(--sbg2)">
+  <section class="section pricing-plans">
     <div class="section-heading">
       <span class="eyebrow">Choose Your Plan</span>
       <h2>Plans Built Around <span class="accent">You</span></h2>
@@ -143,6 +138,17 @@
       </div>
     </div>
 
+    <div class="student-toggle-wrap">
+      <div class="student-toggle" id="studentToggle" role="checkbox" aria-checked="false" tabindex="0">
+        <div class="student-switch"></div>
+        <div class="student-toggle-label">
+          I'm a student
+          <span>Verify with student ID at checkout</span>
+        </div>
+        <span class="student-toggle-pill">Extra 8% off</span>
+      </div>
+    </div>
+
     <div class="plans-grid" id="plansGrid">
 
       <div class="plan-card" data-plan="essential">
@@ -150,19 +156,11 @@
         <div class="plan-tagline">Great for a single room or first apartment</div>
         <div class="plan-price"><span class="amount">₹1,499</span><span class="period"> / month</span></div>
         <div class="plan-billed-note">Billed monthly</div>
-        <div class="plan-save-badge">Save ₹0</div>
         <div class="plan-deposit">Refundable security deposit: <strong>₹2,000</strong></div>
         <ul class="plan-features">
-
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>Free delivery &amp; assembly</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>Basic damage protection</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>1 free swap every 6 months</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>Free delivery &amp; assembly</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>Basic damage protection</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>1 free swap every 6 months</li>
         </ul>
         <button class="btn-outline">Choose Essential</button>
       </div>
@@ -173,22 +171,12 @@
         <div class="plan-tagline">Furnish a full 1–2 BHK home</div>
         <div class="plan-price"><span class="amount">₹2,999</span><span class="period"> / month</span></div>
         <div class="plan-billed-note">Billed monthly</div>
-        <div class="plan-save-badge">Save ₹0</div>
         <div class="plan-deposit">Refundable security deposit: <strong>₹4,000</strong></div>
         <ul class="plan-features">
-
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>Free delivery, assembly &amp; pickup</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>Full damage protection</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>2 free swaps every 6 months</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>Priority support</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>Free delivery, assembly &amp; pickup</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>Full damage protection</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>2 free swaps every 6 months</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>Priority support</li>
         </ul>
         <button class="btn-primary">Choose Comfort</button>
       </div>
@@ -198,22 +186,12 @@
         <div class="plan-tagline">Full home &amp; office setups</div>
         <div class="plan-price"><span class="amount">₹5,499</span><span class="period"> / month</span></div>
         <div class="plan-billed-note">Billed monthly</div>
-        <div class="plan-save-badge">Save ₹0</div>
         <div class="plan-deposit">Refundable security deposit: <strong>₹7,500</strong></div>
         <ul class="plan-features">
-
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>White-glove delivery &amp; styling</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>Zero-deductible protection</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>Unlimited swaps</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>Dedicated account manager</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>White-glove delivery &amp; styling</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>Zero-deductible protection</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>Unlimited swaps</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg>Dedicated account manager</li>
         </ul>
         <button class="btn-outline">Choose Premium</button>
       </div>
@@ -225,37 +203,41 @@
     (function () {
 
       var CYCLES = {
-        monthly: { label: "Monthly", months: 1, discount: 0 },
-        quarterly: { label: "Quarterly", months: 3, discount: 0.05 },
-        halfyearly: { label: "Half-Yearly", months: 6, discount: 0.10 },
-        yearly: { label: "Yearly", months: 12, discount: 0.18 }
+        monthly:    { label: "Monthly",    months: 1,  discount: 0 },
+        quarterly:  { label: "Quarterly",  months: 3,  discount: 0.05 },
+        halfyearly: { label: "Half-Yearly",months: 6,  discount: 0.10 },
+        yearly:     { label: "Yearly",     months: 12, discount: 0.18 }
       };
 
       var PLANS = {
         essential: { base: 1499, deposit: 2000 },
-        comfort: { base: 2999, deposit: 4000 },
-        premium: { base: 5499, deposit: 7500 }
+        comfort:   { base: 2999, deposit: 4000 },
+        premium:   { base: 5499, deposit: 7500 }
       };
+
+      var STUDENT_DISCOUNT = 0.08;
+      var isStudent = false;
+      var activeCycleKey = "monthly";
 
       function formatINR(num) {
         return "₹" + Math.round(num).toLocaleString('en-IN');
       }
 
       function renderCycle(cycleKey) {
+        activeCycleKey = cycleKey;
         var cycle = CYCLES[cycleKey];
+        var totalDiscount = cycle.discount + (isStudent ? STUDENT_DISCOUNT : 0);
 
         document.querySelectorAll('.plan-card').forEach(function (card) {
           var planKey = card.getAttribute('data-plan');
           var plan = PLANS[planKey];
           if (!plan) return;
 
-          var effectiveMonthly = plan.base * (1 - cycle.discount);
+          var effectiveMonthly = plan.base * (1 - totalDiscount);
           var totalBilled = effectiveMonthly * cycle.months;
-          var savings = (plan.base - effectiveMonthly) * cycle.months;
 
           var amountEl = card.querySelector('.amount');
           var noteEl = card.querySelector('.plan-billed-note');
-          var badgeEl = card.querySelector('.plan-save-badge');
 
           card.classList.add('price-updating');
 
@@ -268,17 +250,12 @@
               noteEl.textContent = "Billed " + formatINR(totalBilled) + " every " + cycle.months + " months";
             }
 
-            if (savings > 0) {
-              badgeEl.textContent = "You save " + formatINR(savings) + " total";
-              badgeEl.classList.add('visible');
-            } else {
-              badgeEl.classList.remove('visible');
-            }
-
             card.classList.remove('price-updating');
           }, 160);
         });
       }
+
+
 
       var toggle = document.getElementById('billingToggle');
       var pill = document.getElementById('togglePill');
@@ -306,6 +283,29 @@
       });
 
 
+
+      var studentToggle = document.getElementById('studentToggle');
+
+      function setStudent(state) {
+        isStudent = state;
+        studentToggle.classList.toggle('active', isStudent);
+        studentToggle.setAttribute('aria-checked', String(isStudent));
+        renderCycle(activeCycleKey);
+      }
+
+      studentToggle.addEventListener('click', function () {
+        setStudent(!isStudent);
+      });
+
+      studentToggle.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setStudent(!isStudent);
+        }
+      });
+
+
+
       window.addEventListener('load', function () {
         setActive(buttons[0]);
       });
@@ -314,8 +314,7 @@
 
     })();
   </script>
-
-  <section class="section pricing-estimator" style="background:var(--sbg1)">
+    <section class="section pricing-estimator" style="background:var(--sbg1)">
     <div class="section-heading">
       <span class="eyebrow">Build Your Own</span>
       <h2>Estimate Your <span class="accent">Monthly Rent</span></h2>
@@ -323,7 +322,7 @@
       <p>Pick a furniture type, material and rental duration to see an instant estimate. Longer durations unlock the
         same discounts as our pricing plans — 5%, 10% and 18% off.</p>
     </div>
-
+ 
     <div class="estimator-wrap">
       <form class="estimator-form" id="estimatorForm">
         <div class="estimator-row">
@@ -349,7 +348,7 @@
             </select>
           </div>
         </div>
-
+ 
         <div class="estimator-row">
           <div class="field">
             <label for="rentalDuration">Rental Duration</label>
@@ -366,12 +365,21 @@
             <input type="number" id="itemQuantity" min="1" max="10" value="1">
           </div>
         </div>
-
+ 
+          <div class="student-toggle" id="estimatorStudentToggle" role="checkbox" aria-checked="false" tabindex="0">
+          <div class="student-switch"></div>
+          <div class="student-toggle-label">
+            I'm a student
+            <span>Verify with student ID at checkout</span>
+          </div>
+          <span class="student-toggle-pill">Extra 8% off</span>
+        </div>
+ 
         <button type="button" class="btn-primary" id="calculateBtn"
           style="width:100%; margin-top:6px; text-align: center; justify-content: center;">Calculate Estimate</button>
-
+ 
       </form>
-
+ 
       <div class="estimator-output">
         <h4>Your Estimate</h4>
         <div class="estimate-main">
@@ -381,11 +389,10 @@
         <div class="estimate-line"><span>Rental Duration</span><strong id="outDuration">—</strong></div>
         <div class="estimate-line"><span>Quantity</span><strong id="outQty">—</strong></div>
         <div class="estimate-line"><span>Total for Duration</span><strong id="outTotal">₹0</strong></div>
-        <span class="save-badge" id="outSaveBadge" style="display:none;"></span>
       </div>
     </div>
   </section>
-
+ 
   <script>
     (function () {
       var furnitureSelect = document.getElementById('furnitureType');
@@ -394,17 +401,20 @@
       var qtyInput = document.getElementById('itemQuantity');
       var calculateBtn = document.getElementById('calculateBtn');
       var durationHint = document.getElementById('durationHint');
-
+      var studentToggle = document.getElementById('estimatorStudentToggle');
+ 
       var outMonthly = document.getElementById('outMonthly');
       var outDuration = document.getElementById('outDuration');
       var outQty = document.getElementById('outQty');
       var outTotal = document.getElementById('outTotal');
-      var outSaveBadge = document.getElementById('outSaveBadge');
-
+ 
+      var STUDENT_DISCOUNT = 0.08;
+      var isStudent = false;
+ 
       function formatINR(num) {
         return "₹" + Math.round(num).toLocaleString('en-IN');
       }
-
+ 
       function updateDurationHint() {
         var opt = durationSelect.options[durationSelect.selectedIndex];
         var discount = parseFloat(opt.getAttribute('data-discount'));
@@ -415,51 +425,653 @@
           durationHint.classList.remove('visible');
         }
       }
-
+ 
       function calculateEstimate() {
         var furnitureOpt = furnitureSelect.options[furnitureSelect.selectedIndex];
         var materialOpt = materialSelect.options[materialSelect.selectedIndex];
         var durationOpt = durationSelect.options[durationSelect.selectedIndex];
-
+ 
         var base = parseFloat(furnitureOpt.getAttribute('data-base'));
         var mult = parseFloat(materialOpt.getAttribute('data-mult'));
-        var discount = parseFloat(durationOpt.getAttribute('data-discount'));
+        var discount = parseFloat(durationOpt.getAttribute('data-discount')) + (isStudent ? STUDENT_DISCOUNT : 0);
         var months = parseInt(durationOpt.value, 10);
         var qty = Math.min(Math.max(parseInt(qtyInput.value, 10) || 1, 1), 10);
         qtyInput.value = qty;
-
+ 
         var perItemMonthly = base * mult;
         var fullMonthlyTotal = perItemMonthly * qty;
         var discountedMonthly = fullMonthlyTotal * (1 - discount);
         var totalForDuration = discountedMonthly * months;
-        var totalSavings = (fullMonthlyTotal - discountedMonthly) * months;
-
+ 
         outMonthly.classList.add('updating');
-
+ 
         setTimeout(function () {
           outMonthly.textContent = formatINR(discountedMonthly);
           outDuration.textContent = durationOpt.textContent.replace(/\s*\(.*\)/, '');
           outQty.textContent = qty;
           outTotal.textContent = formatINR(totalForDuration);
-
-          if (totalSavings > 0) {
-            outSaveBadge.textContent = "You save " + formatINR(totalSavings) + " on this plan";
-            outSaveBadge.style.display = 'inline-flex';
-            outSaveBadge.classList.add('visible');
-          } else {
-            outSaveBadge.classList.remove('visible');
-            outSaveBadge.style.display = 'none';
-          }
-
+ 
           outMonthly.classList.remove('updating');
         }, 160);
       }
-
+ 
+      function setStudent(state) {
+        isStudent = state;
+        studentToggle.classList.toggle('active', isStudent);
+        studentToggle.setAttribute('aria-checked', String(isStudent));
+        calculateEstimate();
+      }
+ 
+      studentToggle.addEventListener('click', function () {
+        setStudent(!isStudent);
+      });
+ 
+      studentToggle.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setStudent(!isStudent);
+        }
+      });
+ 
       durationSelect.addEventListener('change', updateDurationHint);
       calculateBtn.addEventListener('click', calculateEstimate);
       updateDurationHint();
     })();
   </script>
+<section class="section" id="shop" style="background:var(--sbg2)">
+
+  <div class="section-heading reveal">
+    <span class="eyebrow">Furnish Your Space</span>
+    <h2>Shop &amp; <span class="accent">Rent Instantly</span></h2>
+    <div class="divider"></div>
+    <p>Add pieces to your cart, set quantities, and see your total update live. Tap an item in your cart to include or exclude it from the total. Students get an extra 8% off every order.</p>
+  </div>
+
+  <div class="shop-layout">
+
+    
+    <div class="shop-grid">
+
+      <div class="shop-card" data-id="s1" data-name="Modular Sofa Set — 5 Seater" data-price="1299" data-cat="Living Room" data-img="../Images/shops1.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops1.jpg" alt="Modular sofa set" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+          <span class="shop-card-badge">Bestseller</span>
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Living Room</span>
+          <h4>Modular Sofa Set — 5 Seater</h4>
+          <div class="shop-card-price">₹1,299<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s2" data-name="Wooden Queen Bed Frame" data-price="899" data-cat="Bedroom" data-img="../Images/shops2.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops2.jpg" alt="Queen bed frame" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Bedroom</span>
+          <h4>Wooden Queen Bed Frame</h4>
+          <div class="shop-card-price">₹899<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s3" data-name="6-Seater Dining Set" data-price="1099" data-cat="Dining" data-img="../Images/shops3.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops3.jpg" alt="Six seater dining set" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Dining</span>
+          <h4>6-Seater Dining Set</h4>
+          <div class="shop-card-price">₹1,099<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s4" data-name="Ergonomic Desk &amp; Chair Set" data-price="749" data-cat="Home Office" data-img="../Images/shop4.avif">
+        <div class="shop-card-media">
+          <img src="../Images/shop4.avif" alt="Ergonomic office desk setup" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+          <span class="shop-card-badge">Student Fave</span>
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Home Office</span>
+          <h4>Ergonomic Desk &amp; Chair Set</h4>
+          <div class="shop-card-price">₹749<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s5" data-name="4-Shelf Bookcase Unit" data-price="549" data-cat="Storage" data-img="../Images/shops5.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops5.jpg" alt="Bookshelf unit" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Storage</span>
+          <h4>4-Shelf Bookcase Unit</h4>
+          <div class="shop-card-price">₹549<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s6" data-name="Fabric Recliner Armchair" data-price="649" data-cat="Living Room" data-img="../Images/shops6.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops6.jpg" alt="Recliner armchair" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Living Room</span>
+          <h4>Fabric Recliner Armchair</h4>
+          <div class="shop-card-price">₹649<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s7" data-name="TV Console Unit" data-price="599" data-cat="Living Room" data-img="../Images/shops7.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops7.jpg" alt="TV console unit" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Living Room</span>
+          <h4>TV Console Unit</h4>
+          <div class="shop-card-price">₹599<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s8" data-name="King Size Wardrobe" data-price="949" data-cat="Bedroom" data-img="../Images/shops8.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops8.jpg" alt="King size wardrobe" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+          <span class="shop-card-badge">New</span>
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Bedroom</span>
+          <h4>King Size Wardrobe</h4>
+          <div class="shop-card-price">₹949<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s9" data-name="Glass Coffee Table" data-price="399" data-cat="Living Room" data-img="../Images/shops9.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops9.jpg" alt="Glass coffee table" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Living Room</span>
+          <h4>Coffee Table</h4>
+          <div class="shop-card-price">₹399<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s10" data-name="Study Table with Chair" data-price="599" data-cat="Home Office" data-img="../Images/shops10.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops10.jpg" alt="Study table with chair" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+          <span class="shop-card-badge">Student Fave</span>
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Home Office</span>
+          <h4>Study Table with Chair</h4>
+          <div class="shop-card-price">₹599<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s11" data-name="Bar Stool Set — Pair" data-price="449" data-cat="Dining" data-img="../Images/shops11.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops11.jpg" alt="Bar stool set" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Dining</span>
+          <h4>Bar Stool Set — Pair</h4>
+          <div class="shop-card-price">₹449<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-id="s12" data-name="Outdoor Patio Lounge Set" data-price="1199" data-cat="Outdoor" data-img="../Images/shops12.jpg">
+        <div class="shop-card-media">
+          <img src="../Images/shops12.jpg" alt="Outdoor patio lounge set" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&amp;fit=crop&amp;w=800&amp;q=80';">
+          <span class="shop-card-badge">Popular</span>
+        </div>
+        <div class="shop-card-info">
+          <span class="shop-card-cat">Outdoor</span>
+          <h4>Outdoor Patio Lounge Set</h4>
+          <div class="shop-card-price">₹1,199<span>/mo</span></div>
+          <div class="shop-card-controls">
+            <div class="qty-stepper" data-qty="1">
+              <button type="button" class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    
+    <aside class="cart-panel" id="cartPanel">
+      <div class="cart-panel-header">
+        <h3>Your Cart <span class="cart-header-count" id="cartHeaderCount">0</span></h3>
+        <button type="button" class="cart-panel-close" id="cartPanelClose" aria-label="Close cart">&times;</button>
+      </div>
+
+      <label class="select-all-row" id="selectAllRow">
+        <span class="select-all-check">
+          <input type="checkbox" id="selectAllToggle">
+          <span class="select-all-box"></span>
+        </span>
+        <span class="select-all-label">Select all</span>
+        <span class="select-all-count" id="selectAllCount">0 of 0 selected</span>
+      </label>
+
+      <label class="student-toggle-row">
+        <span class="student-toggle-label">
+          I'm a Student <span class="student-toggle-badge">Extra 8% off</span>
+        </span>
+        <span class="student-switch">
+          <input type="checkbox" id="studentModeToggle">
+          <span class="student-switch-track"><span class="student-switch-thumb"></span></span>
+        </span>
+      </label>
+
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty" id="cartEmpty">
+          Your cart is empty.<br>Add a product to get started.
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <div class="cart-summary-row">
+          <span>Subtotal <small class="cart-summary-hint">(selected items)</small></span>
+          <span id="cartSubtotal">₹0</span>
+        </div>
+        <div class="cart-summary-row cart-discount-row" id="cartDiscountRow">
+          <span>Student discount (8%)</span>
+          <span id="cartDiscountAmount">−₹0</span>
+        </div>
+        <div class="cart-summary-row cart-total-row">
+          <span>Total / month</span>
+          <span id="cartTotal">₹0</span>
+        </div>
+        <button type="button" class="btn-primary cart-checkout-btn">Proceed to Checkout</button>
+      </div>
+    </aside>
+
+  </div>
+
+  
+  <button type="button" class="cart-trigger" id="cartTrigger" aria-label="View cart">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <circle cx="9" cy="21" r="1.5"/>
+      <circle cx="18" cy="21" r="1.5"/>
+      <path d="M2.5 3h2.4l2.7 12.6a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21.5 7H6"/>
+    </svg>
+    <span class="cart-trigger-count" id="cartTriggerCount">0</span>
+  </button>
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  
+  <div class="cart-toast" id="cartToast">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M20 6L9 17l-5-5"/>
+    </svg>
+    <span id="cartToastMsg">Added to cart</span>
+  </div>
+
+</section>
+<script>
+  (function () {
+    const section = document.getElementById('shop');
+    const CART_KEY = 'rentframe_cart';
+    const STUDENT_KEY = 'rentframe_student_mode';
+    const DISCOUNT_RATE = 0.08;
+
+
+    function getCart() {
+      try {
+        const list = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+
+        return list.map(item => ({ selected: true, ...item }));
+      } catch { return []; }
+    }
+    function saveCart(list) {
+      localStorage.setItem(CART_KEY, JSON.stringify(list));
+    }
+    function getStudentMode() {
+      return localStorage.getItem(STUDENT_KEY) === 'true';
+    }
+    function saveStudentMode(val) {
+      localStorage.setItem(STUDENT_KEY, String(val));
+    }
+
+    function formatINR(num) {
+      return '₹' + Math.round(num).toLocaleString('en-IN');
+    }
+
+
+    section.querySelectorAll('.shop-card').forEach(card => {
+      const stepper = card.querySelector('.qty-stepper');
+      const valueEl = stepper.querySelector('.qty-value');
+      const decreaseBtn = stepper.querySelector('.qty-decrease');
+      const increaseBtn = stepper.querySelector('.qty-increase');
+
+      function setQty(q) {
+        q = Math.max(1, Math.min(20, q));
+        stepper.dataset.qty = q;
+        valueEl.textContent = q;
+      }
+
+      decreaseBtn.addEventListener('click', () => setQty(parseInt(stepper.dataset.qty, 10) - 1));
+      increaseBtn.addEventListener('click', () => setQty(parseInt(stepper.dataset.qty, 10) + 1));
+
+      card.querySelector('.add-to-cart-btn').addEventListener('click', () => {
+        const qtyToAdd = parseInt(stepper.dataset.qty, 10);
+        addToCart(card, qtyToAdd);
+        setQty(1);
+      });
+    });
+
+
+    const toast = document.getElementById('cartToast');
+    const toastMsg = document.getElementById('cartToastMsg');
+    let toastTimer;
+    function showToast(message) {
+      clearTimeout(toastTimer);
+      toastMsg.textContent = message;
+      toast.classList.add('show');
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+
+    function addToCart(card, qty) {
+      const list = getCart();
+      const id = card.dataset.id;
+      const existing = list.find(item => item.id === id);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        list.push({
+          id,
+          name: card.dataset.name,
+          price: parseFloat(card.dataset.price),
+          cat: card.dataset.cat,
+          img: card.dataset.img,
+          qty,
+          selected: true
+        });
+      }
+      saveCart(list);
+      renderCart();
+      showToast(`Added ${qty > 1 ? qty + '× ' : ''}"${card.dataset.name}" to cart`);
+    }
+
+    function updateQty(id, delta) {
+      const list = getCart();
+      const item = list.find(i => i.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        removeFromCart(id);
+        return;
+      }
+      saveCart(list);
+      renderCart();
+    }
+
+    function removeFromCart(id) {
+      const list = getCart().filter(i => i.id !== id);
+      saveCart(list);
+      renderCart();
+    }
+
+    function toggleSelect(id) {
+      const list = getCart();
+      const item = list.find(i => i.id === id);
+      if (!item) return;
+      item.selected = !item.selected;
+      saveCart(list);
+      renderCart();
+    }
+
+    function setAllSelected(val) {
+      const list = getCart();
+      list.forEach(i => { i.selected = val; });
+      saveCart(list);
+      renderCart();
+    }
+
+
+    const itemsWrap = document.getElementById('cartItems');
+    const emptyEl = document.getElementById('cartEmpty');
+    const headerCount = document.getElementById('cartHeaderCount');
+    const triggerCount = document.getElementById('cartTriggerCount');
+    const subtotalEl = document.getElementById('cartSubtotal');
+    const discountRow = document.getElementById('cartDiscountRow');
+    const discountAmountEl = document.getElementById('cartDiscountAmount');
+    const totalEl = document.getElementById('cartTotal');
+    const studentToggle = document.getElementById('studentModeToggle');
+    const selectAllToggle = document.getElementById('selectAllToggle');
+    const selectAllRow = document.getElementById('selectAllRow');
+    const selectAllCount = document.getElementById('selectAllCount');
+    const checkoutBtn = section.querySelector('.cart-checkout-btn');
+
+    function renderCart() {
+      const list = getCart();
+      const isStudent = getStudentMode();
+      const totalCount = list.reduce((sum, i) => sum + i.qty, 0);
+      const selectedItems = list.filter(i => i.selected);
+
+      headerCount.textContent = totalCount;
+      triggerCount.textContent = totalCount;
+
+
+      selectAllRow.style.display = list.length === 0 ? 'none' : 'flex';
+      selectAllCount.textContent = `${selectedItems.length} of ${list.length} selected`;
+      if (list.length === 0) {
+        selectAllToggle.checked = false;
+        selectAllToggle.indeterminate = false;
+      } else if (selectedItems.length === list.length) {
+        selectAllToggle.checked = true;
+        selectAllToggle.indeterminate = false;
+      } else if (selectedItems.length === 0) {
+        selectAllToggle.checked = false;
+        selectAllToggle.indeterminate = false;
+      } else {
+        selectAllToggle.checked = false;
+        selectAllToggle.indeterminate = true;
+      }
+
+
+      itemsWrap.querySelectorAll('.cart-item').forEach(el => el.remove());
+
+      if (list.length === 0) {
+        emptyEl.style.display = 'block';
+      } else {
+        emptyEl.style.display = 'none';
+        list.forEach(item => {
+          const el = document.createElement('div');
+          el.className = 'cart-item' + (item.selected ? '' : ' unselected');
+          el.dataset.id = item.id;
+          el.innerHTML = `
+            <label class="cart-item-check" title="Include in total">
+              <input type="checkbox" class="cart-item-checkbox" ${item.selected ? 'checked' : ''}>
+              <span class="cart-item-check-box"></span>
+            </label>
+            <img src="${item.img}" alt="${item.name}">
+            <div class="cart-item-info">
+              <span class="cart-item-cat">${item.cat} <span class="cart-item-excluded-tag">· Not in total</span></span>
+              <span class="cart-item-title">${item.name}</span>
+              <div class="cart-item-bottom">
+                <span class="cart-item-price">${formatINR(item.price * item.qty)}</span>
+                <div class="cart-item-qty">
+                  <button type="button" class="cart-qty-decrease" aria-label="Decrease quantity">−</button>
+                  <span>${item.qty}</span>
+                  <button type="button" class="cart-qty-increase" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="cart-item-remove" aria-label="Remove item">&times;</button>
+          `;
+          itemsWrap.appendChild(el);
+
+
+          el.addEventListener('click', (e) => {
+            if (e.target.closest('.cart-item-qty') || e.target.closest('.cart-item-remove') || e.target.closest('.cart-item-check')) return;
+            toggleSelect(item.id);
+          });
+
+          el.querySelector('.cart-item-checkbox').addEventListener('change', () => toggleSelect(item.id));
+          el.querySelector('.cart-qty-decrease').addEventListener('click', () => updateQty(item.id, -1));
+          el.querySelector('.cart-qty-increase').addEventListener('click', () => updateQty(item.id, 1));
+          el.querySelector('.cart-item-remove').addEventListener('click', () => removeFromCart(item.id));
+        });
+      }
+
+
+      const subtotal = selectedItems.reduce((sum, i) => sum + i.price * i.qty, 0);
+      const discount = isStudent ? subtotal * DISCOUNT_RATE : 0;
+      const total = subtotal - discount;
+
+      subtotalEl.textContent = formatINR(subtotal);
+      discountAmountEl.textContent = '−' + formatINR(discount);
+      discountRow.classList.toggle('visible', isStudent && subtotal > 0);
+      totalEl.textContent = formatINR(total);
+
+      checkoutBtn.disabled = selectedItems.length === 0;
+    }
+
+
+    studentToggle.checked = getStudentMode();
+    studentToggle.addEventListener('change', () => {
+      saveStudentMode(studentToggle.checked);
+      renderCart();
+    });
+
+
+    selectAllToggle.addEventListener('change', () => {
+      setAllSelected(selectAllToggle.checked);
+    });
+
+
+    const panel = document.getElementById('cartPanel');
+    const overlay = document.getElementById('cartOverlay');
+    const trigger = document.getElementById('cartTrigger');
+    const closeBtn = document.getElementById('cartPanelClose');
+
+    function openPanel() {
+      panel.classList.add('active');
+      overlay.classList.add('active');
+    }
+    function closePanel() {
+      panel.classList.remove('active');
+      overlay.classList.remove('active');
+    }
+
+    trigger.addEventListener('click', openPanel);
+    closeBtn.addEventListener('click', closePanel);
+    overlay.addEventListener('click', closePanel);
+
+
+    checkoutBtn.addEventListener('click', () => {
+      const list = getCart();
+      const selectedItems = list.filter(i => i.selected);
+      if (list.length === 0) {
+        showToast('Your cart is empty');
+        return;
+      }
+      if (selectedItems.length === 0) {
+        showToast('Select at least one item to checkout');
+        return;
+      }
+      alert('Proceeding to checkout with ' + selectedItems.reduce((s, i) => s + i.qty, 0) + ' item(s). Hook this up to your checkout page.');
+    });
+
+
+    renderCart();
+
+  })();
+</script>
+
+
 
 
   <section class="section deposit-info" style="background:var(--sbg1)">
@@ -594,7 +1206,7 @@
           <p>Add Deposit-Free Protection at checkout and rent without paying a lump sum — just a small monthly fee added
             to your plan.</p>
         </div>
-        <a href="#plans" class="btn-primary">Explore Deposit-Free Plans</a>
+        <a href="pricing.htm" class="btn-primary">Explore Deposit-Free Plans</a>
       </div>
 
     </div>

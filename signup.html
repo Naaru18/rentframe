@@ -226,19 +226,28 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
+const modeToggle = document.getElementById('modeToggle');
 
-      const modeToggle = document.getElementById('modeToggle');
 
-      // Read saved mode BEFORE wiring up the click handler
-      if (localStorage.getItem('rentframe-mode') === 'dark') {
-        document.body.classList.add('dark');
-      }
+document.body.classList.remove('dark');
 
-      modeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        localStorage.setItem('rentframe-mode', document.body.classList.contains('dark') ? 'dark' : 'light');
-      });
 
+const savedMode = localStorage.getItem('rentframe-mode');
+
+if (savedMode === 'dark') {
+    document.body.classList.add('dark');
+} else {
+    document.body.classList.remove('dark');
+}
+
+modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+
+    localStorage.setItem(
+        'rentframe-mode',
+        document.body.classList.contains('dark') ? 'dark' : 'light'
+    );
+});
 
       const rtlToggle = document.getElementById('rtlToggle');
       if (localStorage.getItem('rentframe-dir') === 'rtl') document.body.setAttribute('dir', 'rtl');
@@ -408,6 +417,7 @@
 
     });
   </script>
+  
 </body>
 
 </html>

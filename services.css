@@ -401,7 +401,7 @@
 }
 
 .category-card .content p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--text-second);
   opacity: 0.85;
@@ -412,7 +412,7 @@
   display: inline-block;
   font-weight: 700;
   color: var(--primary);
-  font-size: 15px;
+  font-size: 16px;
 }
 
 
@@ -605,7 +605,7 @@ body.dark .step-card {
 }
 
 .step-card p {
-  font-size: 13.5px;
+  font-size: 14.5px;
   line-height: 1.6;
   color: var(--text-second);
   opacity: 0.8;
@@ -869,7 +869,7 @@ body.dark .plan-card {
 }
 
 .plan-card ul li {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-second);
   padding: 9px 0;
   border-bottom: 1px dashed var(--border);
@@ -1128,7 +1128,7 @@ body.dark .plan-card {
 }
 
 .why-item p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.65;
   color: var(--text-second);
   opacity: 0.8;

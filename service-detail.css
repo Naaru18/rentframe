@@ -250,7 +250,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-second);
 }
 
@@ -302,7 +302,7 @@
 }
 
 .specs-row dt {
-  font-size: 13.5px;
+  font-size: 14.5px;
   color: var(--text-second);
   opacity: 0.75;
 }
@@ -595,7 +595,7 @@ body.dark .plan-card {
 }
 
 .plan-card ul li {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-second);
   padding: 9px 0;
   border-bottom: 1px dashed var(--border);
@@ -1192,7 +1192,7 @@ body.dark .included-item {
 }
 
 .included-item p {
-  font-size: 13px;
+  font-size: 14.5px;
   color: var(--text-second);
   opacity: 0.75;
   line-height: 1.6;
@@ -1727,7 +1727,7 @@ body.dark .faq-item {
 
 .faq-answer p {
   padding: 0 24px 20px;
-  font-size: 14px;
+  font-size: 14.5px;
   line-height: 1.7;
   color: var(--text-second);
   opacity: 0.8;

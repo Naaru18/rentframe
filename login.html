@@ -194,12 +194,28 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-      const modeToggle = document.getElementById('modeToggle');
-      modeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        localStorage.setItem('rentframe-mode', document.body.classList.contains('dark') ? 'dark' : 'light');
-      });
+     const modeToggle = document.getElementById('modeToggle');
 
+
+document.body.classList.remove('dark');
+
+
+const savedMode = localStorage.getItem('rentframe-mode');
+
+if (savedMode === 'dark') {
+    document.body.classList.add('dark');
+} else {
+    document.body.classList.remove('dark');
+}
+
+modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+
+    localStorage.setItem(
+        'rentframe-mode',
+        document.body.classList.contains('dark') ? 'dark' : 'light'
+    );
+});
 
       const rtlToggle = document.getElementById('rtlToggle');
       rtlToggle.addEventListener('click', () => {
@@ -352,7 +368,6 @@
 
   </script>
 
-  <script src="../js/navbar.js"></script>
 </body>
 
 </html>

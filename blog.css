@@ -359,7 +359,7 @@
   font-size: 14.5px;
   line-height: 1.75;
   color: var(--text-second);
-  opacity: 0.82;
+
   margin-bottom: 22px;
 }
 
@@ -379,14 +379,13 @@
 
 .featured-meta .name {
   font-weight: 700;
-  font-size: 13.5px;
+  font-size: 14.5px;
   color: var(--text-one);
 }
 
 .featured-meta .date {
   font-size: 12px;
   color: var(--text-second);
-  opacity: 0.6;
 }
 
 
@@ -561,10 +560,9 @@ body.dark .article-card {
 }
 
 .article-card .excerpt {
-  font-size: 13.5px;
+  font-size: 14.5px;
   line-height: 1.65;
   color: var(--text-second);
-  opacity: 0.75;
   margin-bottom: 16px;
 }
 
@@ -572,9 +570,8 @@ body.dark .article-card {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-second);
-  opacity: 0.65;
   margin-bottom: 16px;
 }
 
@@ -736,8 +733,7 @@ body.dark .cat-chip {
   background: var(--card-bg);
 }
 
-.cat-chip:hover,
-.cat-chip.active {
+.cat-chip:hover {
   transform: translateY(-6px);
   box-shadow: var(--hover);
   border-color: var(--primary);
@@ -758,7 +754,6 @@ body.dark .cat-chip {
   transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
-.cat-chip.active .icon,
 .cat-chip:hover .icon {
   background: var(--primary-15);
   border-color: var(--primary);

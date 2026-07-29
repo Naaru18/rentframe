@@ -64,8 +64,8 @@ body.dark .glass-card {
 
 .hero2 {
   position: relative;
-  height: 100vh;
-  min-height: 100vh;
+  height: 92vh;
+  min-height: 92vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -74,6 +74,7 @@ body.dark .glass-card {
   background: var(--hero-bg);
   padding: 0 8%;
   text-align: center;
+    margin-top: 50px;
 }
 
 .hero2-bg {
@@ -432,17 +433,40 @@ body.dark .glass-card {
 
 .pkg-ribbon {
   position: absolute;
-  top: 16px;
-  right: -34px;
-  background: var(--primary);
+  top: 22px;
+  right: -46px;
+  width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
   color: #fff;
-  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 5px 40px;
-  transform: rotate(40deg);
-  z-index: 2;
+  white-space: nowrap;
+  padding: 6px 0;
+  transform: rotate(45deg);
+  transform-origin: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.pkg-ribbon-star {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+
+.pkg-card {
+  position: relative;
+  overflow: hidden;   
+  border-radius: 16px; 
 }
 
 .pkg-media {
@@ -480,7 +504,7 @@ body.dark .glass-card {
 }
 
 .pkg-body p {
-  font-size: 0.86rem;
+  font-size: 14px;
   color: var(--text-second);
   line-height: 1.65;
   margin-bottom: 16px;
@@ -500,7 +524,7 @@ body.dark .glass-card {
 }
 
 .pkg-items li {
-  font-size: 0.82rem;
+  font-size: 14px;
   color: var(--text-second);
   display: inline-flex;
   align-items: center;
@@ -782,7 +806,7 @@ body.dark .glass-card {
 }
 
 .lto-card p {
-  font-size: 0.84rem;
+  font-size: 14px;
   color: var(--text-second);
   line-height: 1.65;
   margin-bottom: 16px;
@@ -1311,10 +1335,7 @@ body.dark .glass-card {
   transform: scale(1.03);
 }
 
-.price-card .pkg-ribbon {
-  top: 16px;
-  right: -34px;
-}
+
 
 .price-card h4 {
   font-family: 'Poppins', sans-serif;
@@ -1325,7 +1346,7 @@ body.dark .glass-card {
 }
 
 .price-card .price-tagline {
-  font-size: 0.8rem;
+  font-size: 14px;
   color: var(--text-second);
   margin-bottom: 20px;
 }
@@ -1358,7 +1379,7 @@ body.dark .glass-card {
 }
 
 .price-period {
-  font-size: 0.76rem;
+  font-size: 14px;
   color: var(--text-second);
   margin-bottom: 22px;
 }
@@ -1369,12 +1390,14 @@ body.dark .glass-card {
   flex-direction: column;
   gap: 10px;
   margin-bottom: 26px;
-  text-align: left;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   flex: 1;
 }
 
 .price-features li {
-  font-size: 0.84rem;
+  font-size: 14px;
   color: var(--text-second);
   display: flex;
   align-items: center;
@@ -1564,116 +1587,6 @@ body.dark .glass-card {
 
 
 
-.inspiration {
-  background: var(--sbg1);
-}
-
-.insp-grid {
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 210px;
-  gap: 18px;
-}
-
-.insp-item {
-  border-radius: 18px;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-}
-
-.insp-item.tall {
-  grid-row: span 2;
-}
-
-.insp-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  display: block;
-}
-
-.insp-item:hover img,
-.insp-item.tapped img {
-  transform: scale(1.07);
-}
-
-.insp-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 45%, rgba(0, 0, 0, 0.7) 100%);
-}
-
-.insp-item span {
-  position: absolute;
-  left: 14px;
-  bottom: 14px;
-  z-index: 1;
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.85rem;
-  font-family: 'Poppins', sans-serif;
-}
-
-
-
-
-@media (max-width: 1024px) {
-  .insp-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 190px;
-    gap: 16px;
-  }
-
-  .insp-item span {
-    font-size: 0.82rem;
-    left: 12px;
-    bottom: 12px;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .insp-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 170px;
-    gap: 14px;
-  }
-
-  .insp-item {
-    border-radius: 14px;
-  }
-
-  .insp-item span {
-    font-size: 0.8rem;
-    left: 12px;
-    bottom: 10px;
-  }
-}
-
-
-@media (max-width: 360px) {
-  .insp-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 140px;
-    gap: 10px;
-  }
-
-  .insp-item {
-    border-radius: 12px;
-  }
-
-  .insp-item.tall {
-    grid-row: span 2;
-  }
-
-  .insp-item span {
-    font-size: 0.72rem;
-    left: 10px;
-    bottom: 8px;
-  }
-}
 
 .newsletter {
   background: var(--sbg2);
@@ -1722,7 +1635,7 @@ body.dark .glass-card {
 
 .nl-card p {
   font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #fff;
   max-width: 520px;
   margin: 0 auto 28px;
 }
@@ -1749,7 +1662,7 @@ body.dark .glass-card {
 }
 
 .nl-form input::placeholder {
-  color: rgba(255, 255, 255, 0.55);
+  color: #fff;
 }
 
 .nl-form input:focus {
@@ -1783,7 +1696,7 @@ body.dark .glass-card {
 
 .nl-note {
   font-size: 0.74rem;
-  color: rgba(255, 255, 255, 0.5);
+  color:#fff;
 }
 
 .nl-success {
