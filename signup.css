@@ -128,43 +128,41 @@ img {
 
 }
 
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 11px;
-  text-decoration: none;
-  margin-top: 10px;
+.navbar-logo{
+  display:inline-flex;
+  align-items:center;     
+  justify-content:center; 
+  text-decoration:none;
+  flex-shrink:0;
 }
-
+ 
 .navbar-logo-icon-wrap {
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   border-radius: 12px;
   padding: 4px;
-  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+ 
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   flex-shrink: 0;
-  box-shadow: 0 6px 16px rgba(164, 114, 81, 0.32);
+  
 }
-
+ 
 .navbar-logo-icon {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
-
+ 
 .navbar-logo-icon-fallback {
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 19px;
 }
-
+ 
 .navbar-logo-text {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -173,11 +171,11 @@ img {
   color: var(--text-one);
   white-space: nowrap;
 }
-
+ 
 .navbar-logo-text span {
   color: var(--primary);
 }
-
+ 
 
 .brand-badge {
   width: 76px;

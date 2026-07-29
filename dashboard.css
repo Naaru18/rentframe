@@ -146,55 +146,54 @@ textarea {
 }
 
 
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  text-decoration: none;
-  flex-shrink: 0;
+.navbar-logo{
+  display:inline-flex;
+  align-items:center;     
+  justify-content:center; 
+  text-decoration:none;
+  flex-shrink:0;
 }
-
+ 
 .navbar-logo-icon-wrap {
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   border-radius: 12px;
   padding: 4px;
-  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+ 
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   flex-shrink: 0;
-  box-shadow: 0 6px 16px rgba(164, 114, 81, 0.32);
+  
 }
-
+ 
 .navbar-logo-icon {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
-
+ 
 .navbar-logo-icon-fallback {
-  color: #fff;
-  font-family: 'Playfair Display', serif;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 19px;
 }
-
+ 
 .navbar-logo-text {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 21px;
+  font-size: 22px;
   letter-spacing: -0.01em;
   color: var(--text-one);
   white-space: nowrap;
 }
-
+ 
 .navbar-logo-text span {
   color: var(--primary);
 }
-
+ 
 .dashboard-shell {
   display: flex;
   min-height: 100vh;
@@ -224,7 +223,7 @@ body[dir="rtl"] .dashboard-sidebar {
 }
 
 .sidebar-brand {
-  padding: 22px 22px 18px;
+  padding: 16px 22px 16px;
   border-bottom: 1px solid var(--border);
 }
 
