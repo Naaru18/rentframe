@@ -681,7 +681,7 @@
 
   @media (min-width: 768px) {
     .plans-grid {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3,1fr);
     }
   }
 
@@ -1165,24 +1165,23 @@
 
   
 
-  .cart-panel {
+.cart-panel {
     background: var(--card-bg);
     border: 1px solid var(--border);
     display: flex;
     flex-direction: column;
 
-    
     position: fixed;
-    top: 0;
+    top: var(--header-height, 70px);
     right: -100%;
     width: 88%;
     max-width: 380px;
-    height: 100vh;
-    z-index: 1950;
+    height: calc(100vh - var(--header-height, 70px));
+    z-index: 100;
     border-radius: 0;
     box-shadow: var(--hover);
     transition: right 0.35s ease;
-  }
+}
 
   .cart-panel.active {
     right: 0;

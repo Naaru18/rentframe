@@ -223,7 +223,7 @@ body[dir="rtl"] .floating-controls {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 1.5px solid var(--border);
+  border: 1.5px solid var(--primary);
   background: var(--sbg1);
   color: var(--primary);
   display: flex;
@@ -529,6 +529,7 @@ body[dir="rtl"] .feature-item {
   color: var(--text-one);
   margin-bottom: 8px;
   text-transform: uppercase;
+  padding-bottom: 10px;
 }
 
 .auth-card-body .auth-sub {
@@ -554,11 +555,11 @@ body[dir="rtl"] .feature-item {
   height: 48px;
   padding: 0 16px;
 
-  border: 1.5px solid var(--primary-20);
+  border: 1.5px solid var(--primary);
   border-radius: 12px;
 
-  background: var(--primary-10);
-  color: var(--primary-dark);
+  background: var(--card-bg);
+  color: var(--text-one);
 
   font-family: 'Inter', sans-serif;
   font-size: 13px;
@@ -817,222 +818,510 @@ body[dir="rtl"] .toggle-password {
   transform: translateY(0);
 }
 
-@media (max-width: 1280px) {
-  .auth-card-body {
-    padding: 50px 32px 36px;
-  }
-}
-
 @media (max-width: 1024px) {
-  .auth-visual {
-    padding: 44px;
+  html, body {
+    overflow: hidden;
   }
 
-  .typewriter-heading {
-    font-size: 30px;
+  .auth-visual {
+    display: none;
+  }
+
+  .auth-page {
+    min-height: auto;
+    height: 100vh;
+    overflow: hidden;
+    grid-template-columns: 1fr;
   }
 
   .auth-form-panel {
-    padding: 36px 6%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 6%;
+  }
+
+  .auth-card {
+    max-width: 440px;
+  }
+
+  .auth-card-body {
+    padding: 16px 36px 18px;
+  }
+
+  .navbar-logo {
+    margin-bottom: 6px;
+  }
+
+  .auth-card-body h1 {
+    font-size: 18px;
+    margin-bottom: 3px;
+    padding-bottom: 4px;
+  }
+
+  .social-login-group {
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+
+  .social-btn {
+    height: 34px;
+    font-size: 11px;
+  }
+
+  .divider-text {
+    margin-bottom: 10px;
+    font-size: 10.5px;
+  }
+
+  .field {
+    margin-bottom: 8px;
+  }
+
+  .field label {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .field input {
+    padding: 7px 12px;
+    font-size: 12.5px;
+  }
+
+  .field-hint {
+    font-size: 10px;
+    margin-top: 3px;
+  }
+
+  .terms-row {
+    margin-bottom: 10px;
+  }
+
+  .terms-check span {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .auth-submit-btn {
+    padding: 9px;
+    margin-bottom: 8px;
+    font-size: 0.78rem;
+  }
+
+  .auth-switch {
+    font-size: 11.5px;
+  }
+
+  .floating-controls {
+    top: 12px;
+    right: 12px;
+  }
+
+  body[dir="rtl"] .floating-controls {
+    right: auto;
+    left: 12px;
+  }
+
+  .ctrl-btn {
+    width: 34px;
+    height: 34px;
   }
 }
 
-
 @media (max-width: 768px) {
+  html, body {
+    overflow: hidden;
+  }
+
   .auth-page {
+    min-height: auto;
+    height: 100vh;
+    overflow: hidden;
     grid-template-columns: 1fr;
   }
 
   .auth-visual {
-    min-height: 340px;
-    padding: 60px 8% 44px;
-  }
-
-  .typewriter-heading {
-    font-size: 25px;
-    min-height: 3.3em;
-  }
-
-  .feature-list {
     display: none;
   }
 
-  .auth-visual-dots {
-    margin-top: 22px;
-  }
-
   .auth-form-panel {
-    padding: 40px 6% 60px;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6%;
   }
 
   .auth-card {
-    max-width: 460px;
-  }
-
-  .floating-controls {
-    top: 16px;
-    right: 16px;
-  }
-}
-
-@media (max-width: 360px) {
-  .auth-visual {
-    min-height: 300px;
-    padding: 50px 6% 36px;
-  }
-
-  .typewriter-heading {
-    font-size: 21px;
-  }
-
-  .visual-icon-ring {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 18px;
+    max-width: 400px;
+    max-height: 94vh;
+    overflow: hidden;
   }
 
   .auth-card-body {
-    padding: 44px 18px 30px;
+    padding: 12px 26px 14px;
+    max-height: 94vh;
+    overflow: hidden;
+  }
+
+  .navbar-logo {
+    margin-bottom: 5px;
   }
 
   .auth-card-body h1 {
-    font-size: 22px;
+    font-size: 15px;
+    margin-bottom: 3px;
+    padding-bottom: 3px;
+  }
+
+  .auth-card-body .auth-sub {
+    font-size: 10.5px;
+    line-height: 1.35;
+    margin-bottom: 8px;
   }
 
   .social-login-group {
-    flex-direction: column;
+    margin-bottom: 7px;
+    gap: 6px;
   }
 
   .social-btn {
-    width: 100%;
+    height: 28px;
+    font-size: 10px;
+  }
+
+  .divider-text {
+    margin-bottom: 7px;
+    font-size: 9.5px;
+  }
+
+  .field {
+    margin-bottom: 6px;
+  }
+
+  .field label {
+    font-size: 10px;
+    margin-bottom: 3px;
+  }
+
+  .field input {
+    padding: 5px 10px;
+    font-size: 11.5px;
+  }
+
+  .field-hint {
+    font-size: 9px;
+    margin-top: 2px;
   }
 
   .form-utility-row {
-    flex-wrap: wrap;
-    gap: 10px;
+    margin-bottom: 7px;
+    font-size: 10.5px;
+  }
+
+  .terms-row {
+    margin-bottom: 7px;
+  }
+
+  .terms-check input {
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+  }
+
+  .terms-check span {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  .auth-submit-btn {
+    padding: 7px;
+    margin-bottom: 5px;
+    font-size: 0.72rem;
+  }
+
+  .auth-switch {
+    font-size: 10.5px;
+  }
+
+  .floating-controls {
+    top: 10px;
+    right: 10px;
+  }
+
+  body[dir="rtl"] .floating-controls {
+    right: auto;
+    left: 10px;
   }
 
   .ctrl-btn {
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
 
-  .reveal,
-  .feature-item {
-    transition: none;
-    opacity: 1;
-    transform: none;
-    animation: none;
+@media (max-width: 360px) {
+  html, body {
+    overflow: hidden;
   }
 
-  .auth-blob {
-    animation: none;
+  .auth-page {
+    min-height: auto;
+    height: 100vh;
+    overflow: hidden;
+    grid-template-columns: 1fr;
   }
 
-  .cursor {
-    animation: none;
+  .auth-visual {
+    display: none;
+  }
+
+  .auth-form-panel {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 4%;
+  }
+
+  .auth-card {
+    max-width: 340px;
+  }
+
+  .auth-card-body {
+    padding: 10px 14px 12px;
+  }
+
+  .navbar-logo {
+    margin-bottom: 4px;
+  }
+
+  .auth-card-body h1 {
+    font-size: 14px;
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+  }
+
+  .social-login-group {
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 6px;
+  }
+
+  .social-btn {
+    height: 28px;
+    font-size: 9px;
+    padding: 0 6px;
+  }
+
+  .social-btn span {
+    display: none;
+  }
+
+  .divider-text {
+    margin-bottom: 6px;
+    font-size: 9px;
+  }
+
+  .field {
+    margin-bottom: 5px;
+  }
+
+  .field label {
+    font-size: 10px;
+    margin-bottom: 2px;
+  }
+
+  .field input {
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  .field-hint {
+    font-size: 9px;
+    margin-top: 2px;
+  }
+
+  .terms-row {
+    margin-bottom: 6px;
+  }
+
+  .terms-check input {
+    width: 13px;
+    height: 13px;
+    margin-top: 1px;
+  }
+
+  .terms-check span {
+    font-size: 9.5px;
+    line-height: 1.3;
+  }
+
+  .auth-submit-btn {
+    padding: 7px;
+    margin-bottom: 5px;
+    font-size: 0.7rem;
+  }
+
+  .auth-switch {
+    font-size: 10px;
+  }
+
+  .floating-controls {
+    top: 6px;
+    right: 6px;
+    gap: 5px;
+  }
+
+  body[dir="rtl"] .floating-controls {
+    right: auto;
+    left: 6px;
+  }
+
+  .ctrl-btn {
+    width: 28px;
+    height: 28px;
   }
 }
 
-.navbar-logo {
-  margin-bottom: 20px;
-}
+@media (min-width: 1281px) {
+  html, body {
+    overflow: hidden;
+  }
 
-
-@media (min-width: 1025px) {
   .auth-page {
     height: 100vh;
     min-height: 100vh;
     overflow: hidden;
   }
 
-
   .auth-visual {
-    padding: 36px 50px;
+    padding: 40px 56px;
+    overflow: hidden;
   }
 
   .visual-icon-ring {
-    width: 54px;
-    height: 54px;
-    margin-bottom: 16px;
-  }
-
-  .typewriter-heading {
-    min-height: 2.9em;
-    margin-bottom: 12px;
-  }
-
-  .auth-visual-inner>p.static-sub {
+    width: 60px;
+    height: 60px;
     margin-bottom: 20px;
   }
 
+  .typewriter-heading {
+    font-size: 34px;
+    min-height: 3.2em;
+    margin-bottom: 16px;
+  }
+
+  .auth-visual-inner > p.static-sub {
+    font-size: 14px;
+    margin-bottom: 26px;
+  }
+
   .feature-list {
-    gap: 10px;
+    gap: 14px;
   }
 
   .feature-item {
-    padding: 10px 14px;
+    padding: 11px 15px;
   }
 
   .auth-visual-dots {
-    margin-top: 18px;
+    margin-top: 24px;
   }
-
 
   .auth-form-panel {
     height: 100vh;
-    padding: 20px 6%;
-    overflow-y: auto;
+    overflow: hidden;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .auth-card {
     max-height: calc(100vh - 40px);
+    overflow: hidden;
+    max-width: 420px;
   }
 
   .auth-card-body {
-    padding: 22px 34px 24px;
+    padding: 26px 38px 28px;
     max-height: calc(100vh - 40px);
-    overflow-y: auto;
+    overflow: hidden;
   }
 
   .navbar-logo {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .auth-card-body h1 {
+    font-size: 23px;
     margin-bottom: 6px;
+    padding-bottom: 8px;
   }
 
   .auth-card-body .auth-sub {
-    margin-bottom: 16px;
+    font-size: 13px;
+    margin-bottom: 18px;
   }
 
   .social-login-group {
-    gap: 10px;
-    margin-bottom: 14px;
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
   .social-btn {
-    height: 42px;
+    height: 44px;
+    font-size: 12.5px;
   }
 
   .divider-text {
-    margin-bottom: 14px;
+    margin-bottom: 16px;
+    font-size: 11.5px;
   }
 
   .field {
-    margin-bottom: 12px;
+    margin-bottom: 13px;
+  }
+
+  .field label {
+    font-size: 12px;
+    margin-bottom: 6px;
   }
 
   .field input {
     padding: 10px 14px;
+    font-size: 13.5px;
+  }
+
+  .field-hint {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  .terms-row {
+    margin-bottom: 13px;
+  }
+
+  .terms-check span {
+    font-size: 12px;
+    line-height: 1.5;
   }
 
   .auth-submit-btn {
     padding: 12px;
     margin-bottom: 12px;
+  }
+
+  .auth-switch {
+    font-size: 12.5px;
   }
 }
