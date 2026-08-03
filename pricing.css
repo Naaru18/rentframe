@@ -634,7 +634,7 @@
 
   .btn-primary, .btn-outline {
     justify-content: center;
-    width: 100%;
+    
     display: flex;
     align-items: center;
     padding: 13px 20px;
