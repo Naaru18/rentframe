@@ -13,7 +13,15 @@
 </head>
 
 <body>
-
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('rentframe-theme') === 'dark') {
+          document.body.classList.add('dark');
+        }
+      } catch (e) { }
+    })();
+  </script>
   <div class="floating-controls">
     <button class="ctrl-btn" id="modeToggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">
       <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -97,15 +105,15 @@
       <div class="auth-card reveal">
         <div class="auth-card-body">
 
-      
-    <a href="index.html" class="navbar-logo">
-        <span class="navbar-logo-icon-wrap">
-          <img src="../Images/logo3.png" alt="RentFrame logo" class="navbar-logo-icon"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-          <span class="navbar-logo-icon-fallback" style="display:none;">R</span>
-        </span>
-        <span class="navbar-logo-text">Rent<span>Frame</span></span>
-      </a>
+
+          <a href="index.html" class="navbar-logo">
+            <span class="navbar-logo-icon-wrap">
+              <img src="../Images/logo3.png" alt="RentFrame logo" class="navbar-logo-icon"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <span class="navbar-logo-icon-fallback" style="display:none;">R</span>
+            </span>
+            <span class="navbar-logo-text">Rent<span>Frame</span></span>
+          </a>
           <h1>Create Account</h1>
 
 
@@ -225,30 +233,16 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const modeToggle = document.getElementById('modeToggle');
 
-const modeToggle = document.getElementById('modeToggle');
+      modeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
 
-
-document.body.classList.remove('dark');
-
-
-const savedMode = localStorage.getItem('rentframe-mode');
-
-if (savedMode === 'dark') {
-    document.body.classList.add('dark');
-} else {
-    document.body.classList.remove('dark');
-}
-
-modeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-
-    localStorage.setItem(
-        'rentframe-mode',
-        document.body.classList.contains('dark') ? 'dark' : 'light'
-    );
-});
-
+        localStorage.setItem(
+          'rentframe-theme',
+          document.body.classList.contains('dark') ? 'dark' : 'light'
+        );
+      });
       const rtlToggle = document.getElementById('rtlToggle');
       if (localStorage.getItem('rentframe-dir') === 'rtl') document.body.setAttribute('dir', 'rtl');
       rtlToggle.addEventListener('click', () => {
@@ -417,7 +411,7 @@ modeToggle.addEventListener('click', () => {
 
     });
   </script>
-  
+
 </body>
 
 </html>
