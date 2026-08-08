@@ -434,9 +434,9 @@ body[dir="rtl"] .sidebar-link .badge-count {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 1.5px solid var(--border);
+  border: 1.5px solid var(--primary);
   background: var(--sbg2);
-  color: var(--primary);
+  color: var(--text-one);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -459,6 +459,12 @@ body[dir="rtl"] .sidebar-link .badge-count {
   background: var(--danger);
   border: 1.5px solid var(--sbg1);
 }
+.icon-btn .icon-svg {
+  width: 18px;
+  height: 18px;
+
+}
+
 
 body[dir="rtl"] .icon-btn .dot {
   right: auto;

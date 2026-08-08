@@ -9,23 +9,39 @@
 
   <link rel="preload" href="../css/navbar.css" as="style">
   <link rel="stylesheet" href="../global.css">
-
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="../404page.css">
 </head>
 
 <body>
 
-  
+    <script>
+    (function () {
+      try {
+        if (localStorage.getItem('rentframe-theme') === 'dark') {
+          document.body.classList.add('dark');
+        }
+      } catch (e) { }
+    })();
+  </script>
 
 <div class="toggle-group">
 
   <button class="dir-toggle" id="dirToggle" type="button" aria-label="Switch to right-to-left layout" aria-pressed="false">
-     <span id="dirLabel">RTL</span>
+     <i class="fas fa-exchange-alt"></i>
   </button>
 
   <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
-    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"></path></svg>
-    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"></path></svg>
+     <svg class="icon-svg icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+      </svg>
+      <svg class="icon-svg icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+      </svg>
   </button>
 
 </div>
@@ -104,24 +120,27 @@
   "use strict";
 
   
-  var body = document.body;
-  var toggle = document.getElementById("themeToggle");
+var body = document.body;
+var toggle = document.getElementById("themeToggle");
 
-  function setTheme(isDark) {
-    body.classList.toggle("dark", isDark);
-    toggle.setAttribute("aria-pressed", String(isDark));
-    toggle.setAttribute(
-      "aria-label",
-      isDark ? "Switch to light mode" : "Switch to dark mode"
-    );
-  }
+function setTheme(isDark) {
+  body.classList.toggle("dark", isDark);
+  toggle.setAttribute("aria-pressed", String(isDark));
+  toggle.setAttribute(
+    "aria-label",
+    isDark ? "Switch to light mode" : "Switch to dark mode"
+  );
+  try {
+    localStorage.setItem("rentframe-theme", isDark ? "dark" : "light");
+  } catch (e) { }
+}
 
+// Respect whatever the inline head script already applied from localStorage
+setTheme(body.classList.contains("dark"));
 
-  setTheme(false);
-
-  toggle.addEventListener("click", function () {
-    setTheme(!body.classList.contains("dark"));
-  });
+toggle.addEventListener("click", function () {
+  setTheme(!body.classList.contains("dark"));
+});
 
   
   var html = document.documentElement;

@@ -56,42 +56,43 @@ img {
   cursor: not-allowed;
   transform: none;
 }
-.navbar-logo{
-  display:inline-flex;
-  align-items:center;     
-  justify-content:center; 
-  gap:4px;
-  text-decoration:none;
-  flex-shrink:0;
+
+.navbar-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-decoration: none;
+  flex-shrink: 0;
 }
- 
+
 .navbar-logo-icon-wrap {
   width: 50px;
   height: 50px;
   border-radius: 12px;
   padding: 4px;
- 
+
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   flex-shrink: 0;
-  
+
 }
- 
+
 .navbar-logo-icon {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
- 
+
 .navbar-logo-icon-fallback {
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 19px;
 }
- 
+
 .navbar-logo-text {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -100,11 +101,11 @@ img {
   color: var(--text-one);
   white-space: nowrap;
 }
- 
+
 .navbar-logo-text span {
   color: var(--primary);
 }
- 
+
 
 
 .brand-badge {
@@ -155,7 +156,7 @@ body[dir="rtl"] .floating-controls {
   border-radius: 50%;
   border: 1.5px solid var(--primary);
   background: var(--sbg1);
-  color: var(--primary);
+  color: var(--text-one);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,6 +180,13 @@ body.dark .icon-sun {
 
 body.dark .icon-moon {
   display: block;
+}
+
+.ctrl-btn .icon-sun,
+.ctrl-btn .icon-moon,
+.ctrl-btn .icon-rtl {
+  width: 18px;
+  height: 18px;
 }
 
 .auth-page {
@@ -486,7 +494,7 @@ body[dir="rtl"] .feature-item {
 
   border: 1.5px solid var(--primary);
   border-radius: 12px;
-background: var(--card-bg);
+  background: var(--card-bg);
   color: var(--text-one);
 
   font-family: 'Inter', sans-serif;
@@ -746,6 +754,8 @@ body[dir="rtl"] .toggle-password {
   transform: translateY(0);
 }
 
+
+
 @media (max-width: 1280px) {
   .auth-card-body {
     padding: 50px 32px 36px;
@@ -753,7 +763,9 @@ body[dir="rtl"] .toggle-password {
 }
 
 @media (max-width: 1024px) {
-  html, body {
+
+  html,
+  body {
     overflow: hidden;
   }
 
@@ -863,7 +875,9 @@ body[dir="rtl"] .toggle-password {
 }
 
 @media (max-width: 768px) {
-  html, body {
+
+  html,
+  body {
     overflow: hidden;
   }
 
@@ -891,6 +905,7 @@ body[dir="rtl"] .toggle-password {
   .auth-card {
     max-width: 410px;
   }
+
 
   .auth-card-body {
     padding: 20px 32px 22px;
@@ -974,7 +989,9 @@ body[dir="rtl"] .toggle-password {
 
 
 @media (max-width: 360px) {
-  html, body {
+
+  html,
+  body {
     overflow: hidden;
   }
 
@@ -1086,3 +1103,4 @@ body[dir="rtl"] .toggle-password {
     height: 34px;
   }
 }
+

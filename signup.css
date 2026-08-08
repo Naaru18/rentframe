@@ -127,7 +127,12 @@ img {
   align-items: center;
 
 }
-
+.ctrl-btn .icon-sun,
+.ctrl-btn .icon-moon,
+.ctrl-btn .icon-rtl {
+  width: 18px;
+  height: 18px;
+}
 .navbar-logo{
   display:inline-flex;
   align-items:center;     
@@ -225,7 +230,7 @@ body[dir="rtl"] .floating-controls {
   border-radius: 50%;
   border: 1.5px solid var(--primary);
   background: var(--sbg1);
-  color: var(--primary);
+  color: var(--text-one);
   display: flex;
   align-items: center;
   justify-content: center;

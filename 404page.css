@@ -32,12 +32,12 @@ body {
 .theme-toggle,
 .dir-toggle {
   position: relative;
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: 1.5px solid var(--primary);
+  border: 1px solid var(--primary);
   background: var(--sbg1);
-  color: var(--primary-dark);
+  color: var(--text-one);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,9 +63,9 @@ body {
 
 .theme-toggle svg,
 .dir-toggle svg {
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
+  width: 18px;
+  height: 18px;
+
 }
 
 .theme-toggle .icon-moon { display: none; }

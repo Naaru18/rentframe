@@ -298,90 +298,9 @@
   </script>
 
 
-  <section class="section bg-1" id="plans">
-    <div class="section-heading reveal">
-      <span class="eyebrow">Pricing</span>
-      <h2>Rental <span class="accent">Plans</span></h2>
-      <div class="divider"></div>
-      <p>Transparent pricing with no hidden charges. Cancel or upgrade anytime.</p>
-    </div>
-
-    <div class="plans-grid">
-      <div class="plan-card reveal">
-        <h3>Starter</h3>
-        <div class="price-line">
-          <span class="amount">₹2,499</span>
-          <span class="period">/ month</span>
-        </div>
-        <ul>
-          <li>Up to 2 furniture pieces</li>
-          <li>Free delivery & setup</li>
-          <li>1 free swap per year</li>
-          <li>Basic damage protection</li>
-        </ul>
-        <a href="pricing.html" class="btn-outline">Choose Plan</a>
-      </div>
-
-      <div class="plan-card featured reveal reveal-delay-1">
-        <h3>Complete Home</h3>
-        <div class="price-line">
-          <span class="amount">₹5,999</span>
-          <span class="period">/ month</span>
-        </div>
-        <ul>
-          <li>Up to 4 furniture pieces</li>
-          <li>Priority free delivery</li>
-          <li>3 free swaps per year</li>
-          <li>Full damage protection</li>
-          <li>Dedicated support line</li>
-        </ul>
-        <a href="pricing.html" class="btn-primary">Choose Plan</a>
-      </div>
-
-      <div class="plan-card reveal reveal-delay-2">
-        <h3>Business</h3>
-        <div class="price-line">
-          <span class="amount">₹11,499</span>
-          <span class="period">/ month</span>
-        </div>
-        <ul>
-          <li>Up to 7 furniture pieces</li>
-          <li>Same-day delivery</li>
-          <li>Unlimited swaps</li>
-          <li>Premium damage protection</li>
-          <li>Account manager included</li>
-        </ul>
-        <a href="pricing.html" class="btn-outline">Choose Plan</a>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    (function () {
-      function initReveal() {
-        var items = document.querySelectorAll('.reveal');
-        if (!("IntersectionObserver" in window)) {
-          items.forEach(function (el) { el.classList.add('is-visible'); });
-          return;
-        }
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              io.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-        items.forEach(function (el) { io.observe(el); });
-      }
-
-      document.addEventListener('DOMContentLoaded', initReveal);
-    })();
-  </script>
 
 
-  <section class="section bg-2">
+  <section class="section bg-1">
     <div class="why-wrap">
       <div class="why-img reveal">
         <img src="../Images/why.avif" alt="Cozy furnished apartment interior">
@@ -510,7 +429,7 @@
     })();
   </script>
 
-  <section class="section bg-1">
+  <section class="section bg-2">
     <div class="section-heading reveal">
       <span class="eyebrow">Testimonials</span>
       <h2>What Our <span class="accent">Customers Say</span></h2>
@@ -669,7 +588,7 @@
     })();
   </script>
 
-  <section class="section bg-2">
+  <section class="section bg-1">
     <div class="cta-banner reveal">
       <div class="cta-orb cta-orb--one" id="ctaOrbOne"></div>
       <div class="cta-orb cta-orb--two" id="ctaOrbTwo"></div>
